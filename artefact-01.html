@@ -1,0 +1,146 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Model Privacy Notice — SaaS Product · Artefact 01 · Clarissa Ankrah</title>
+  <meta name="description" content="A worked case study: drafting a privacy notice for a solo-founder SaaS product hosted on GitHub Pages." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html">Clarissa Ankrah</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+        <span class="nav__toggle-bars"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html" href="artefacts.html">Work</a></li>
+          <li><a class="nav__link" data-nav="writing.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
+          <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
+          <li><a class="nav__link" data-nav="contact.html" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="article-head">
+      <div class="wrap-narrow">
+        <a class="back-link" href="artefacts.html"><span aria-hidden="true">←</span> Back to Artefacts</a>
+        <p class="eyebrow">Artefact 01 · Case Study</p>
+        <h1 class="article-head__title">Model Privacy Notice — SaaS Product</h1>
+        <div class="article-head__tags">
+          <span class="tag">Article 13</span>
+          <span class="tag">Article 14</span>
+          <span class="tag">UK GDPR</span>
+          <span class="tag">PECR</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="prose">
+      <div class="wrap-narrow">
+
+        <div class="prose__step">
+          <div class="prose__step-num">The scenario</div>
+          <div class="prose__step-body">
+            <h3>A solo founder, a single-page app, and a real obligation.</h3>
+            <p>The brief: a solo founder is building a small SaaS tool — a markdown editor with cloud-free saving — hosted as a static site on GitHub Pages. The product has no accounts, no analytics, no cookies, and no third party scripts. State is held in the browser via <em>localStorage</em>. The founder still wants a proper privacy notice on the marketing page and a one-click "what data do we hold?" answer they can stand behind.</p>
+            <p>The interesting bit is what makes it interesting: <strong>the absence of data does not remove the obligation to be transparent about that absence.</strong> Article 13 of UK GDPR is triggered when personal data is collected directly from the data subject. The founder still collects an email address through a contact form, which routes via Formspree.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <div class="prose__step-num">The legal framework</div>
+          <div class="prose__step-body">
+            <h3>Articles 13 and 14 — what must be told, to whom, and when.</h3>
+            <p><strong>Article 13</strong> applies when personal data is obtained from the data subject directly. It requires that the data subject be informed, at the point of collection, of: the identity of the controller, the purposes and lawful basis of processing, the recipients, retention periods, their rights, and the right to complain to the supervisory authority.</p>
+            <p><strong>Article 14</strong> applies when personal data is obtained from a source other than the data subject. It requires similar information, plus the source of the data, and must be provided within a reasonable period and at the latest within one month.</p>
+            <p>For this product, only Article 13 is engaged — the contact form is the only collection point. PECR sits alongside and would be engaged if cookies or similar tracking were used. They are not, which is a notable thing to state explicitly.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <div class="prose__step-num">Key decisions</div>
+          <div class="prose__step-body">
+            <h3>Three calls worth showing my working on.</h3>
+            <ul>
+              <li><strong>No DPO required.</strong> The controller is a sole trader, the processing is not large scale, and the data is not sensitive. Article 37 triggers are not met. Stated plainly in the notice so the reader is not left to wonder.</li>
+              <li><strong>Lawful basis = legitimate interests for the contact form.</strong> Consent was tempting but unstable; the form is initiated by the user, so a 6(1)(f) legitimate interests assessment was simpler and more honest. Documented separately with a balancing test on file.</li>
+              <li><strong>Google Fonts flagged.</strong> GitHub Pages does not phone home, but the page loads Inter from Google's CDN — which transmits the visitor's IP to Google. This is processing of personal data by a US-based processor. Flagged with recommendation to self-host the font, or use a system font stack to avoid the transfer entirely.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <div class="prose__step-num">The output</div>
+          <div class="prose__step-body">
+            <h3>Drafted privacy notice (extract).</h3>
+
+            <div class="output-block">
+              <p class="doc-meta">Privacy notice · Effective 01 June 2026 · Version 1.0</p>
+
+              <h4>Who we are</h4>
+              <p>This site is operated by the founder of <em>[Product Name]</em>, a sole trader based in the United Kingdom and the data controller for the limited personal data described below. You can reach us at <em>[contact email]</em>.</p>
+
+              <h4>What we collect</h4>
+              <p>The product itself does not require an account and does not store your content on our servers. Notes you create are saved in your browser's local storage and never transmitted to us.</p>
+              <p>We collect personal data only when you send us a message through the contact form on this page: your name (optional), your email address, and the content of your message.</p>
+
+              <h4>Why we collect it and on what basis</h4>
+              <p>We process the contact form data on the basis of our <strong>legitimate interests</strong> (UK GDPR Article 6(1)(f)) — namely, to respond to enquiries you have voluntarily initiated. We do not use this data for marketing.</p>
+
+              <h4>How long we keep it</h4>
+              <p>Enquiries are kept for up to twelve months after our last exchange, after which they are deleted. If your message becomes a customer record, retention follows our standard retention schedule (six years from end of relationship, for tax purposes).</p>
+
+              <h4>Who else sees it</h4>
+              <p>The contact form is hosted by <em>Formspree</em> (acting as a processor), which transmits messages to our email inbox hosted by <em>[email provider]</em>. Both providers operate under appropriate transfer safeguards. We do not use analytics, advertising, or social media trackers on this site.</p>
+
+              <h4>Your rights</h4>
+              <ul>
+                <li>Access — ask us what we hold about you.</li>
+                <li>Rectification — ask us to correct it.</li>
+                <li>Erasure — ask us to delete it.</li>
+                <li>Object — ask us to stop processing it on legitimate interests grounds.</li>
+                <li>Complain — to the Information Commissioner's Office at ico.org.uk.</li>
+              </ul>
+
+              <h4>Cookies and similar technologies</h4>
+              <p>This site does not set cookies. We do not use tracking pixels, fingerprinting, or session recording. The site loads the <em>Inter</em> typeface from Google Fonts; if you wish to avoid this connection, your browser's content blocker can prevent it without affecting functionality.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <div class="prose__step-num">Reflection</div>
+          <div class="prose__step-body">
+            <h3>What this scenario taught me.</h3>
+            <p>Privacy notices for small products tend to be either copied from a template (and therefore wrong) or so cautious they become unreadable. The thing I will carry forward is that <em>plain language is not the opposite of legal precision</em> — being specific about what you do and do not collect is the most compliant thing you can do, and it is also the kindest thing to do for a reader who is not a lawyer.</p>
+            <p>The Google Fonts call was the moment the scenario stopped being a checklist. The default behaviour of any modern static site quietly transmits personal data overseas. Catching that — and choosing to flag it rather than ignore it — is the difference between a notice that documents compliance and one that performs it.</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap">
+      <p class="foot__line">
+        <span>© Clarissa Ankrah 2026</span>
+        <span>clarissaankrah.co.uk</span>
+        <span>Built by Clarissa. Free. Updated regularly.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

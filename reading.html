@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Reading — Clarissa Ankrah</title>
+  <meta name="description" content="The books on my shelf and the tabs in my browser." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html">Clarissa Ankrah</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+        <span class="nav__toggle-bars"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html" href="artefacts.html">Work</a></li>
+          <li><a class="nav__link" data-nav="writing.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
+          <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
+          <li><a class="nav__link" data-nav="contact.html" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="r-hero">
+      <div class="wrap r-hero__grid">
+        <div class="r-hero__mark" aria-hidden="true">
+          <span class="diamond"></span>
+        </div>
+        <div class="r-hero__body">
+          <p class="eyebrow r-hero__eyebrow">Reading list <span class="r-hero__star" aria-hidden="true">✦</span></p>
+          <h1 class="r-hero__title">The books on my shelf,<br />the tabs in my browser.</h1>
+          <p class="r-hero__sub">Two parts. The shelf — books, papers, and standards I keep within reach. The web — the newsletters, podcasts, and live references I keep open. Click a spine to pick it up; covers and key annotations load alongside.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Filters + counts -->
+    <section class="r-controls">
+      <div class="wrap">
+        <div class="r-filters" role="group" aria-label="Filter by area">
+          <span class="r-filters__label">Area</span>
+          <div class="r-filters__pills" data-filters>
+            <button class="r-pill is-active" type="button" data-area="all">All</button>
+            <button class="r-pill" type="button" data-area="general">General / foundational</button>
+            <button class="r-pill" type="button" data-area="dp">Data Protection</button>
+            <button class="r-pill" type="button" data-area="ai">AI Governance</button>
+            <button class="r-pill" type="button" data-area="fin">FinTech Regulation</button>
+            <button class="r-pill" type="button" data-area="sec">Cybersecurity &amp; NIS2</button>
+            <button class="r-pill" type="button" data-area="fc">Financial Crime / AML</button>
+          </div>
+        </div>
+
+        <div class="r-counts" data-counts>
+          <span class="r-counts__num" data-count-shelf>—</span><span class="r-counts__lbl">on the shelf</span>
+          <span class="r-counts__sep" aria-hidden="true">·</span>
+          <span class="r-counts__num" data-count-web>—</span><span class="r-counts__lbl">on the web</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 01 — On the shelf -->
+    <section class="section section--first r-section">
+      <div class="wrap">
+        <div class="section__head r-section__head">
+          <span class="section-num">01</span>
+          <div>
+            <h2 class="r-h2">On the shelf</h2>
+            <p class="r-h2__sub">Books, standards and seminal papers. Hover the spines — the cursor turns into a hand. Click to pick one up.</p>
+          </div>
+        </div>
+
+        <!-- Featured picks -->
+        <div class="r-feat">
+          <p class="r-sub-label"><span class="r-star" aria-hidden="true">★</span> Featured picks</p>
+          <div class="r-feat__row" data-featured></div>
+        </div>
+
+        <!-- The shelf -->
+        <div class="r-shelf-block">
+          <div class="r-sub-row">
+            <p class="r-sub-label">The shelf</p>
+            <p class="r-sub-hint">Reach for a book</p>
+          </div>
+
+          <div class="r-shelf-wrap">
+            <button class="r-shelf-nav r-shelf-nav--prev" type="button" data-shelf-prev aria-label="Scroll shelf left">
+              <span aria-hidden="true">‹</span>
+            </button>
+            <div class="r-shelf" data-shelf-row role="list" aria-label="Bookshelf"></div>
+            <button class="r-shelf-nav r-shelf-nav--next" type="button" data-shelf-next aria-label="Scroll shelf right">
+              <span aria-hidden="true">›</span>
+            </button>
+          </div>
+
+          <p class="r-shelf-help">
+            <kbd>←</kbd><kbd>→</kbd> <span>to browse the shelf</span>
+            <span class="r-shelf-help__sep" aria-hidden="true">·</span>
+            <kbd>⏎</kbd> <span>on a spine to open</span>
+          </p>
+        </div>
+
+        <!-- Selected book detail card -->
+        <div class="r-detail" data-detail></div>
+      </div>
+    </section>
+
+    <!-- Section 02 — On the web -->
+    <section class="section r-section">
+      <div class="wrap">
+        <div class="section__head r-section__head">
+          <span class="section-num">02</span>
+          <div>
+            <h2 class="r-h2">On the web</h2>
+            <p class="r-h2__sub">Newsletters, blogs, and live references I check regularly. Visit to open.</p>
+          </div>
+        </div>
+
+        <div class="r-web" data-web></div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap">
+      <p class="foot__line">
+        <span>© Clarissa Ankrah 2026</span>
+        <span>clarissaankrah.co.uk</span>
+        <span>Built by Clarissa. Free. Updated regularly.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="scripts.js"></script>
+</body>
+</html>
