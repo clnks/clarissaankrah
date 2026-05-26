@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Journal — Clarissa Ankrah</title>
+  <meta name="description" content="A running log of what I'm making, studying, reading, and attending — in data protection, AI governance, FinTech, and security." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html">Clarissa Ankrah</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+        <span class="nav__toggle-bars"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html" href="artefacts.html">Work</a></li>
+          <li><a class="nav__link" data-nav="writing.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
+          <li><a class="nav__link" data-nav="journal.html" href="journal.html">Journal</a></li>
+          <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
+          <li><a class="nav__link" data-nav="contact.html" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- Hero -->
+    <section class="j-hero">
+      <div class="wrap j-hero__grid">
+        <div class="j-hero__mark" aria-hidden="true">
+          <span class="diamond"></span>
+        </div>
+        <div class="j-hero__body">
+          <p class="eyebrow j-hero__eyebrow">Working log <span class="j-hero__star" aria-hidden="true">✦</span></p>
+          <h1 class="j-hero__title">What I'm making,<br />studying, reading,<br />and attending.</h1>
+          <p class="j-hero__sub">A running log, dated and chip-tagged. Resources I've built, modules I've worked through, papers I keep coming back to, events I sat in on. Attached PDFs where there are any. Updated as I go.</p>
+          <p class="j-hero__source" data-journal-source>Seed · Local</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Controls -->
+    <section class="j-controls">
+      <div class="wrap j-controls__inner">
+
+        <!-- Layout toggle -->
+        <div class="j-layout" data-layout-toggle role="group" aria-label="Layout">
+          <span class="j-layout__lbl">View</span>
+          <button type="button" data-layout="timeline" title="Timeline view">
+            <span class="j-layout__icn" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="14" height="14"><circle cx="3" cy="4" r="2" fill="currentColor"/><circle cx="3" cy="12" r="2" fill="currentColor"/><line x1="3" y1="4" x2="3" y2="12" stroke="currentColor" stroke-width="1"/><line x1="7" y1="4" x2="14" y2="4" stroke="currentColor" stroke-width="1.5"/><line x1="7" y1="12" x2="14" y2="12" stroke="currentColor" stroke-width="1.5"/></svg>
+            </span>
+            <span>Timeline</span>
+          </button>
+          <button type="button" data-layout="grid" title="Card grid view">
+            <span class="j-layout__icn" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="14" height="14"><rect x="1" y="1" width="6" height="6" stroke="currentColor" fill="none"/><rect x="9" y="1" width="6" height="6" stroke="currentColor" fill="none"/><rect x="1" y="9" width="6" height="6" stroke="currentColor" fill="none"/><rect x="9" y="9" width="6" height="6" stroke="currentColor" fill="none"/></svg>
+            </span>
+            <span>Grid</span>
+          </button>
+          <button type="button" data-layout="changelog" title="Changelog view">
+            <span class="j-layout__icn" aria-hidden="true">
+              <svg viewBox="0 0 16 16" width="14" height="14"><line x1="1" y1="3" x2="15" y2="3" stroke="currentColor" stroke-width="1.5"/><line x1="1" y1="8" x2="15" y2="8" stroke="currentColor" stroke-width="1.5"/><line x1="1" y1="13" x2="15" y2="13" stroke="currentColor" stroke-width="1.5"/></svg>
+            </span>
+            <span>Changelog</span>
+          </button>
+        </div>
+
+        <div class="j-count" data-journal-count>—</div>
+      </div>
+
+      <div class="wrap j-controls__filters">
+        <div class="j-filters" role="group" aria-label="Filter by area">
+          <span class="j-filters__lbl">Area</span>
+          <div class="j-pills" data-area-filters>
+            <button class="j-pill is-active" type="button" data-area="all">All</button>
+            <button class="j-pill" type="button" data-area="dp">Data Protection</button>
+            <button class="j-pill" type="button" data-area="ai">AI Governance</button>
+            <button class="j-pill" type="button" data-area="fin">FinTech</button>
+            <button class="j-pill" type="button" data-area="sec">Cybersecurity</button>
+            <button class="j-pill" type="button" data-area="fc">Financial Crime</button>
+            <button class="j-pill" type="button" data-area="general">Foundational</button>
+          </div>
+        </div>
+
+        <div class="j-filters" role="group" aria-label="Filter by type">
+          <span class="j-filters__lbl">Type</span>
+          <div class="j-pills" data-type-filters>
+            <button class="j-pill is-active" type="button" data-jtype="all">All</button>
+            <button class="j-pill" type="button" data-jtype="made">Made</button>
+            <button class="j-pill" type="button" data-jtype="studied">Studied</button>
+            <button class="j-pill" type="button" data-jtype="read">Read</button>
+            <button class="j-pill" type="button" data-jtype="attended">Attended</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Entries -->
+    <section class="section section--first j-section">
+      <div class="wrap j-wrap" data-journal-wrap>
+        <ol class="j-list" data-journal></ol>
+      </div>
+    </section>
+
+    <!-- Admin: Add entry (hidden until signed in) -->
+    <section class="j-admin-zone">
+      <div class="wrap">
+        <p class="j-admin-status" data-admin-status></p>
+
+        <div class="j-add">
+          <button class="j-add__toggle" type="button" data-jrn-add-toggle aria-expanded="false" aria-controls="journal-form" hidden>
+            <span class="j-add__plus" aria-hidden="true">+</span>
+            <span class="j-add__label">Add a journal entry</span>
+          </button>
+
+          <form class="j-form" id="journal-form" data-jrn-form hidden>
+            <div class="j-form__head">
+              <h3 class="j-form__title">New journal entry</h3>
+              <p class="j-form__hint">Logged live to Supabase. Visible to everyone the moment you save.</p>
+            </div>
+
+            <div class="j-form__grid">
+              <fieldset class="j-form__field j-form__field--full j-form__field--seg">
+                <legend class="j-form__label">Type</legend>
+                <div class="j-form__seg">
+                  <label><input type="radio" name="kind" value="made" required /><span>Made</span></label>
+                  <label><input type="radio" name="kind" value="studied" /><span>Studied</span></label>
+                  <label><input type="radio" name="kind" value="read" /><span>Read</span></label>
+                  <label><input type="radio" name="kind" value="attended" /><span>Attended</span></label>
+                </div>
+              </fieldset>
+
+              <label class="j-form__field j-form__field--full">
+                <span class="j-form__label">Title</span>
+                <input type="text" name="title" required maxlength="160" placeholder="e.g. EU AI Act — high-risk quick reference" />
+              </label>
+
+              <label class="j-form__field">
+                <span class="j-form__label">Date</span>
+                <input type="month" name="date" required />
+              </label>
+
+              <label class="j-form__field">
+                <span class="j-form__label">Area</span>
+                <select name="area" required>
+                  <option value="dp">Data Protection</option>
+                  <option value="ai">AI Governance</option>
+                  <option value="fin">FinTech</option>
+                  <option value="sec">Cybersecurity</option>
+                  <option value="fc">Financial Crime / AML</option>
+                  <option value="general">Foundational</option>
+                </select>
+              </label>
+
+              <label class="j-form__field j-form__field--full">
+                <span class="j-form__label">Source <span class="j-form__opt">optional</span></span>
+                <input type="text" name="source" maxlength="120" placeholder="e.g. Own work · IAPP · ENISA · author name" />
+              </label>
+
+              <label class="j-form__field j-form__field--full">
+                <span class="j-form__label">Note</span>
+                <textarea name="note" rows="3" maxlength="800" placeholder="What you took from it, or why it's worth coming back to."></textarea>
+              </label>
+
+              <label class="j-form__field j-form__field--full">
+                <span class="j-form__label">Link <span class="j-form__opt">optional</span></span>
+                <input type="url" name="link" placeholder="https://" />
+              </label>
+
+              <div class="j-form__field j-form__field--full">
+                <span class="j-form__label">PDF attachment <span class="j-form__opt">optional</span></span>
+                <label class="j-form__drop" data-jrn-drop>
+                  <input type="file" name="pdf" accept="application/pdf,.pdf" hidden data-jrn-file />
+                  <span class="j-form__drop-prompt" data-jrn-drop-prompt>
+                    <span class="j-form__drop-icon" aria-hidden="true">PDF</span>
+                    <span class="j-form__drop-text">
+                      <strong>Drop a PDF here</strong>, or <u>browse&nbsp;files</u>.<br />
+                      <span class="j-form__drop-sub">Uploaded to Supabase Storage — publicly readable.</span>
+                    </span>
+                  </span>
+                  <span class="j-form__drop-chip" data-jrn-file-chip hidden>
+                    <span class="j-form__drop-icon" aria-hidden="true">PDF</span>
+                    <span class="j-form__drop-fname" data-jrn-file-name></span>
+                    <button type="button" class="j-form__drop-clear" data-jrn-file-clear aria-label="Remove file">×</button>
+                  </span>
+                </label>
+              </div>
+            </div>
+
+            <div class="j-form__row">
+              <p class="j-form__store">
+                <em>Live.</em> Saved to Supabase and visible to everyone the moment you publish.
+              </p>
+              <div class="j-form__actions">
+                <button class="j-form__cancel" type="button" data-jrn-cancel>Cancel</button>
+                <button class="j-form__submit" type="submit">Save entry</button>
+              </div>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap">
+      <p class="foot__line">
+        <span>© Clarissa Ankrah 2026</span>
+        <span>clarissaankrah.co.uk</span>
+        <span>Built by Clarissa. Free. Updated regularly.</span>
+      </p>
+    </div>
+  </footer>
+
+  <!-- Admin pill (floating, bottom-right) -->
+  <button class="j-admin-pill" type="button" data-admin-pill aria-label="Admin sign in">Admin</button>
+
+  <!-- Admin modal -->
+  <div class="j-modal" data-admin-modal hidden role="dialog" aria-modal="true">
+    <div class="j-modal__backdrop" data-admin-close></div>
+    <div class="j-modal__panel">
+      <div class="j-modal__content"></div>
+    </div>
+  </div>
+
+  <!-- Flash toast -->
+  <div class="j-flash" data-flash></div>
+
+  <!-- Supabase JS (UMD) -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
+  <script src="scripts.js"></script>
+  <script src="journal.js"></script>
+</body>
+</html>
