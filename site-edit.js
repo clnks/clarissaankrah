@@ -282,33 +282,22 @@
   }
 
   function attachPencil(el) {
+    // Make sure absolute children land inside this element
+    var cs = getComputedStyle(el);
+    if (cs.position === "static") el.style.position = "relative";
+
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "se-pencil";
     btn.setAttribute("aria-label", "Edit text");
-    btn.setAttribute("data-se-for", el.getAttribute("data-edit"));
     btn.title = "Edit";
     btn.textContent = "✎";
-    btn.style.position = "absolute";
-    btn.style.zIndex = "9999";
-
-    function positionPencil() {
-      var r = el.getBoundingClientRect();
-      btn.style.top  = (r.top  + window.scrollY - 12) + "px";
-      btn.style.left = (r.right + window.scrollX - 16) + "px";
-    }
-
-    document.body.appendChild(btn);
-    positionPencil();
-
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       openEditor(el);
     });
-
-    window.addEventListener("scroll", positionPencil, { passive: true });
-    window.addEventListener("resize", positionPencil, { passive: true });
+    el.appendChild(btn);
   }
 
   /* ============================================
@@ -424,20 +413,17 @@
     st.id = "__site_edit_styles";
     st.textContent =
       ".se-pencil{" +
-        "position:absolute; top:-12px; right:-12px;" +
+        "position:absolute;" +
         "width:28px; height:28px; padding:0; margin:0;" +
         "border:1px solid var(--border, #d8d2c5); border-radius:50%;" +
         "background:#fff; color:#3A2F6A;" +
         "font-size:14px; line-height:1; cursor:pointer;" +
         "display:inline-flex; align-items:center; justify-content:center;" +
         "box-shadow:0 2px 6px rgba(40,30,10,.10);" +
-        "opacity:0; transform:translateY(-2px);" +
-        "transition:opacity 140ms ease, transform 140ms ease, background 140ms ease, color 140ms ease, border-color 140ms ease;" +
-        "z-index:30;" +
+        "opacity:1;" +
+        "transition:background 140ms ease, color 140ms ease, border-color 140ms ease;" +
+        "z-index:9999;" +
       "}" +
-      "body.se-admin .se-editable:hover > .se-pencil," +
-      "body.se-admin .se-editable:focus-within > .se-pencil," +
-      "body.se-admin .se-pencil:focus { opacity:1; transform:translateY(0); }" +
       ".se-pencil:hover { background:#3A2F6A; color:#fff; border-color:#3A2F6A; }" +
       "body.se-admin .se-editable { outline: 1px dashed transparent; outline-offset: 6px; border-radius: 2px; transition: outline-color 140ms ease; }" +
       "body.se-admin .se-editable:hover { outline-color: rgba(58,47,106,.35); }";
