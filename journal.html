@@ -178,18 +178,19 @@
               </label>
 
               <div class="j-form__field j-form__field--full">
-                <span class="j-form__label">PDF attachment <span class="j-form__opt">optional</span></span>
+                <span class="j-form__label">Attachment <span class="j-form__opt">optional · PDF, JPG, PNG, WebP</span></span>
                 <label class="j-form__drop" data-jrn-drop>
-                  <input type="file" name="pdf" accept="application/pdf,.pdf" hidden data-jrn-file />
+                  <input type="file" name="pdf" accept="application/pdf,image/jpeg,image/png,image/webp,image/gif,.pdf,.jpg,.jpeg,.png,.webp,.gif" hidden data-jrn-file />
                   <span class="j-form__drop-prompt" data-jrn-drop-prompt>
-                    <span class="j-form__drop-icon" aria-hidden="true">PDF</span>
+                    <span class="j-form__drop-icon" aria-hidden="true">FILE</span>
                     <span class="j-form__drop-text">
-                      <strong>Drop a PDF here</strong>, or <u>browse&nbsp;files</u>.<br />
-                      <span class="j-form__drop-sub">Uploaded to Supabase Storage — publicly readable.</span>
+                      <strong>Drop a file here</strong>, or <u>browse&nbsp;files</u>.<br />
+                      <span class="j-form__drop-sub">PDFs, JPGs, PNGs supported. Uploaded to Supabase Storage — publicly readable.</span>
                     </span>
                   </span>
                   <span class="j-form__drop-chip" data-jrn-file-chip hidden>
-                    <span class="j-form__drop-icon" aria-hidden="true">PDF</span>
+                    <span class="j-form__drop-icon" data-jrn-file-icon aria-hidden="true">FILE</span>
+                    <img class="j-form__drop-preview" data-jrn-file-preview hidden alt="" />
                     <span class="j-form__drop-fname" data-jrn-file-name></span>
                     <button type="button" class="j-form__drop-clear" data-jrn-file-clear aria-label="Remove file">×</button>
                   </span>

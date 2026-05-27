@@ -118,6 +118,32 @@
   }
 
   /* ============================================
+     File type detection
+     ============================================ */
+  var IMAGE_EXT = { jpg: 1, jpeg: 1, png: 1, webp: 1, gif: 1 };
+  function fileExt(name) {
+    return (name || "").split(".").pop().toLowerCase();
+  }
+  function fileKind(name) {
+    var ext = fileExt(name);
+    if (ext === "pdf") return "pdf";
+    if (IMAGE_EXT[ext]) return "image";
+    return "file";
+  }
+  function fileMime(file) {
+    if (file.type) return file.type;
+    var ext = fileExt(file.name);
+    var map = { pdf: "application/pdf", jpg: "image/jpeg", jpeg: "image/jpeg", png: "image/png", webp: "image/webp", gif: "image/gif" };
+    return map[ext] || "application/octet-stream";
+  }
+  function isAttachmentAllowed(file) {
+    var ext = fileExt(file.name);
+    if (ext === "pdf" || IMAGE_EXT[ext]) return true;
+    var t = (file.type || "").toLowerCase();
+    return t === "application/pdf" || t.indexOf("image/") === 0;
+  }
+
+  /* ============================================
      Supabase init
      ============================================ */
   var sb = null;
@@ -247,6 +273,15 @@
       });
     });
 
+    // Wire edit buttons (admin only)
+    host.querySelectorAll("[data-jrn-edit]").forEach(function (b) {
+      b.addEventListener("click", function () {
+        var id = b.getAttribute("data-jrn-edit");
+        var entry = STATE.entries.find(function (e) { return String(e.id) === String(id); });
+        if (entry) openEditForm(entry);
+      });
+    });
+
     updateCounts();
   }
 
@@ -279,13 +314,22 @@
 
   function entryActionsHTML(e) {
     var html = "";
-    var pdfHref = e.pdf_url || e.pdf;
-    if (pdfHref) {
-      html += '<a class="j-action j-action--pdf" href="' + esc(pdfHref) + '" target="_blank" rel="noopener">' +
-                '<span class="j-pdf-tag" aria-hidden="true">PDF</span>' +
-                '<span>Read attachment</span>' +
-                '<span aria-hidden="true">↗</span>' +
-              '</a>';
+    var href = e.pdf_url || e.pdf;
+    if (href) {
+      var kind = fileKind(e.pdf_name || href);
+      if (kind === "image") {
+        html += '<a class="j-action j-action--img" href="' + esc(href) + '" target="_blank" rel="noopener">' +
+                  '<img class="j-img-thumb" src="' + esc(href) + '" alt="" loading="lazy" />' +
+                  '<span>View image</span>' +
+                  '<span aria-hidden="true">↗</span>' +
+                '</a>';
+      } else {
+        html += '<a class="j-action j-action--pdf" href="' + esc(href) + '" target="_blank" rel="noopener">' +
+                  '<span class="j-pdf-tag" aria-hidden="true">PDF</span>' +
+                  '<span>Read attachment</span>' +
+                  '<span aria-hidden="true">↗</span>' +
+                '</a>';
+      }
     }
     if (e.link) {
       html += '<a class="j-action" href="' + esc(e.link) + '" target="_blank" rel="noopener">' +
@@ -293,6 +337,16 @@
               '</a>';
     }
     return html;
+  }
+
+  function adminEditBtn(e) {
+    if (!isAdmin() || !e.id) return "";
+    return '<button type="button" class="j-edit" data-jrn-edit="' + esc(e.id) + '" aria-label="Edit entry" title="Edit entry"></button>';
+  }
+
+  function adminBtns(e) {
+    if (!isAdmin() || !e.id) return "";
+    return '<div class="j-admin-btns">' + adminEditBtn(e) + adminDelBtn(e) + '</div>';
   }
 
   function adminDelBtn(e) {
@@ -312,7 +366,7 @@
         '<time datetime="' + esc(e.entry_date) + '">' + esc(formatJournalDate(e.entry_date)) + '</time>' +
       '</div>' +
       '<div class="j-card j-card--timeline">' +
-        adminDelBtn(e) +
+        adminBtns(e) +
         '<div class="j-chips">' +
           '<span class="j-kind j-kind--' + e.kind + '">' + c.kind.label + '</span>' +
           '<span class="j-area">' + areaLabel(e.area) + '</span>' +
@@ -332,7 +386,7 @@
     li.setAttribute("data-jtype", e.kind);
     li.innerHTML =
       '<article class="j-card j-card--grid">' +
-        adminDelBtn(e) +
+        adminBtns(e) +
         '<header class="j-card__top">' +
           '<span class="j-kind j-kind--' + e.kind + '">' + c.kind.label + '</span>' +
           '<time class="j-card__date" datetime="' + esc(e.entry_date) + '">' + esc(formatJournalDate(e.entry_date)) + '</time>' +
@@ -371,7 +425,7 @@
       '<time class="j-cl__date" datetime="' + esc(e.entry_date) + '">' + esc(formatJournalDate(e.entry_date)) + '</time>' +
       '<span class="j-kind j-kind--' + e.kind + ' j-cl__kind">' + c.kind.label + '</span>' +
       '<div class="j-cl__body">' +
-        adminDelBtn(e) +
+        adminBtns(e) +
         '<h3 class="j-cl__title">' + esc(e.title) + '</h3>' +
         '<p class="j-cl__meta">' +
           '<span class="j-area j-area--inline">' + areaLabel(e.area) + '</span>' +
@@ -548,8 +602,24 @@
   }
 
   /* ============================================
-     Add / Delete entry
+     Add / Edit / Delete entry
      ============================================ */
+  var FORM_STATE = {
+    mode: "add",          // "add" | "edit"
+    editingId: null,
+    originalPath: null,
+    originalName: null,
+    attachmentChoice: "none"  // "keep" | "replace" | "remove" | "none"
+  };
+
+  // Expose for openEditForm before initAddForm runs
+  var formApi = null;
+
+  function openEditForm(entry) {
+    if (!formApi) return;
+    formApi.openEdit(entry);
+  }
+
   function initAddForm() {
     var toggle = document.querySelector("[data-jrn-add-toggle]");
     var form   = document.querySelector("[data-jrn-form]");
@@ -561,7 +631,13 @@
     var prompt    = form.querySelector("[data-jrn-drop-prompt]");
     var chip      = form.querySelector("[data-jrn-file-chip]");
     var fname     = form.querySelector("[data-jrn-file-name]");
+    var fileIcon  = form.querySelector("[data-jrn-file-icon]");
+    var preview   = form.querySelector("[data-jrn-file-preview]");
     var clearBtn  = form.querySelector("[data-jrn-file-clear]");
+    var formTitle = form.querySelector(".j-form__title");
+    var formHint  = form.querySelector(".j-form__hint");
+    var submitBtn = form.querySelector(".j-form__submit");
+    var addLabel  = toggle.querySelector(".j-add__label");
 
     function openForm() {
       form.hidden = false;
@@ -587,45 +663,100 @@
       form.reset();
       if (fileInput) fileInput.value = "";
       updateFileUI(null);
+      FORM_STATE.mode = "add";
+      FORM_STATE.editingId = null;
+      FORM_STATE.originalPath = null;
+      FORM_STATE.originalName = null;
+      FORM_STATE.attachmentChoice = "none";
+      if (formTitle) formTitle.textContent = "New journal entry";
+      if (formHint)  formHint.textContent  = "Logged live to Supabase. Visible to everyone the moment you save.";
+      if (submitBtn) submitBtn.textContent = "Save entry";
+      if (addLabel)  addLabel.textContent  = "Add a journal entry";
+      form.classList.remove("is-editing");
     }
 
     toggle.addEventListener("click", function () {
-      if (form.hidden) openForm();
-      else closeForm();
+      if (form.hidden) {
+        // Toggle is now "open add form" if not in edit mode (edit comes via edit buttons)
+        FORM_STATE.mode = "add";
+        openForm();
+      } else {
+        resetForm();
+        closeForm();
+      }
     });
     if (cancel) cancel.addEventListener("click", function () { resetForm(); closeForm(); });
 
-    function updateFileUI(file) {
-      if (file) {
-        if (prompt) prompt.hidden = true;
-        if (chip)   chip.hidden = false;
-        if (fname)  fname.textContent = file.name + "  · " + formatBytes(file.size);
-      } else {
+    function updateFileUI(file, options) {
+      options = options || {};
+      // file can be a File object OR an object {name, kind, isExisting}
+      if (!file) {
         if (prompt) prompt.hidden = false;
-        if (chip)   chip.hidden = true;
-        if (fname)  fname.textContent = "";
+        if (chip) chip.hidden = true;
+        if (preview) { preview.hidden = true; preview.removeAttribute("src"); }
+        if (fname) fname.textContent = "";
+        if (fileIcon) fileIcon.textContent = "FILE";
+        chip.classList.remove("is-existing");
+        return;
       }
+      if (prompt) prompt.hidden = true;
+      if (chip) chip.hidden = false;
+      var name = file.name || "attachment";
+      var kind = file.kind || fileKind(name);
+      if (fileIcon) fileIcon.textContent = kind === "image" ? "IMG" : (kind === "pdf" ? "PDF" : "FILE");
+
+      // Image preview
+      if (kind === "image" && file instanceof File) {
+        try {
+          var url = URL.createObjectURL(file);
+          if (preview) { preview.src = url; preview.hidden = false; }
+        } catch (_) {}
+      } else if (kind === "image" && options.previewUrl) {
+        if (preview) { preview.src = options.previewUrl; preview.hidden = false; }
+      } else if (preview) {
+        preview.hidden = true;
+        preview.removeAttribute("src");
+      }
+
+      // File name label
+      var bytesPart = (file.size != null) ? "  · " + formatBytes(file.size) : "";
+      var existingPart = options.isExisting ? "  · existing" : "";
+      if (fname) fname.textContent = name + bytesPart + existingPart;
+
+      chip.classList.toggle("is-existing", !!options.isExisting);
     }
+
     function setFile(file) {
-      if (!file) { if (fileInput) fileInput.value = ""; updateFileUI(null); return; }
-      if (file.type && file.type !== "application/pdf" && !/\.pdf$/i.test(file.name)) {
-        alert("Please attach a PDF file."); return;
+      if (!file) {
+        if (fileInput) fileInput.value = "";
+        if (FORM_STATE.mode === "edit" && FORM_STATE.attachmentChoice !== "none" && FORM_STATE.originalPath) {
+          // User clearing in edit mode = remove the existing attachment
+          FORM_STATE.attachmentChoice = "remove";
+        }
+        updateFileUI(null);
+        return;
+      }
+      if (!isAttachmentAllowed(file)) {
+        alert("Unsupported file type. Use a PDF, JPG, PNG, WebP, or GIF.");
+        return;
       }
       if (file.size > 25 * 1024 * 1024) {
-        if (!confirm("That PDF is over 25 MB. Upload anyway?")) return;
+        if (!confirm("That file is over 25 MB. Upload anyway?")) return;
       }
       if (fileInput && window.DataTransfer) {
         try { var dt = new DataTransfer(); dt.items.add(file); fileInput.files = dt.files; } catch (_) {}
       }
+      if (FORM_STATE.mode === "edit") FORM_STATE.attachmentChoice = "replace";
       updateFileUI(file);
     }
+
     if (fileInput) {
       fileInput.addEventListener("change", function () {
         var f = fileInput.files && fileInput.files[0];
         setFile(f || null);
       });
     }
-    if (clearBtn) clearBtn.addEventListener("click", function (ev) { ev.preventDefault(); setFile(null); });
+    if (clearBtn) clearBtn.addEventListener("click", function (ev) { ev.preventDefault(); ev.stopPropagation(); setFile(null); });
 
     if (drop) {
       ["dragenter", "dragover"].forEach(function (evt) {
@@ -639,6 +770,55 @@
         if (f) setFile(f);
       });
     }
+
+    function openEditMode(entry) {
+      FORM_STATE.mode = "edit";
+      FORM_STATE.editingId = entry.id;
+      FORM_STATE.originalPath = entry.pdf_path || null;
+      FORM_STATE.originalName = entry.pdf_name || null;
+      FORM_STATE.attachmentChoice = entry.pdf_path ? "keep" : "none";
+
+      // Populate fields
+      var kindEl = form.querySelector('input[name="kind"][value="' + entry.kind + '"]');
+      if (kindEl) kindEl.checked = true;
+      form.querySelector('input[name="title"]').value  = entry.title || "";
+      form.querySelector('input[name="date"]').value   = entry.entry_date || "";
+      form.querySelector('select[name="area"]').value  = entry.area || "";
+      form.querySelector('input[name="source"]').value = entry.source || "";
+      form.querySelector('textarea[name="note"]').value = entry.note || "";
+      form.querySelector('input[name="link"]').value   = entry.link || "";
+      if (fileInput) fileInput.value = "";
+
+      // Reflect existing attachment
+      if (entry.pdf_path) {
+        var name = entry.pdf_name || "attachment";
+        var kind = fileKind(name);
+        var previewUrl = (kind === "image" && entry.pdf_url) ? entry.pdf_url : null;
+        updateFileUI({ name: name, kind: kind }, { isExisting: true, previewUrl: previewUrl });
+      } else {
+        updateFileUI(null);
+      }
+
+      // Update form chrome
+      if (formTitle) formTitle.textContent = "Edit entry";
+      if (formHint)  formHint.textContent  = "Update the entry below — changes go live the moment you save.";
+      if (submitBtn) submitBtn.textContent = "Save changes";
+      if (addLabel)  addLabel.textContent  = "Editing entry…";
+      form.classList.add("is-editing");
+
+      // Open and scroll to it
+      form.hidden = false;
+      toggle.setAttribute("aria-expanded", "true");
+      toggle.classList.add("is-open");
+      setTimeout(function () {
+        var formTop = form.getBoundingClientRect().top + window.scrollY - 80;
+        window.scrollTo({ top: formTop, behavior: "smooth" });
+        var t = form.querySelector('input[name="title"]');
+        if (t) t.focus();
+      }, 100);
+    }
+
+    formApi = { openEdit: openEditMode };
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
@@ -658,47 +838,80 @@
         alert("Type, title, date and area are required."); return;
       }
 
-      var pdfFile = fileInput && fileInput.files && fileInput.files[0];
-      var submitBtn = form.querySelector(".j-form__submit");
-      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = pdfFile ? "Uploading…" : "Saving…"; }
+      var newFile = fileInput && fileInput.files && fileInput.files[0];
+      var isEdit = FORM_STATE.mode === "edit";
+      var oldPath = FORM_STATE.originalPath;
 
-      var pipeline = Promise.resolve();
-      if (pdfFile) {
-        pipeline = uploadPdf(pdfFile).then(function (uploaded) {
+      // Decide attachment job: upload new / delete old / keep / nothing
+      var attachJob;
+      if (newFile) {
+        attachJob = uploadFile(newFile).then(function (uploaded) {
           entry.pdf_path = uploaded.path;
           entry.pdf_name = uploaded.name;
+          if (isEdit && oldPath && oldPath !== uploaded.path) {
+            return deleteFromStorage(oldPath).catch(function () {});
+          }
         });
+      } else if (isEdit && FORM_STATE.attachmentChoice === "remove" && oldPath) {
+        entry.pdf_path = null;
+        entry.pdf_name = null;
+        attachJob = deleteFromStorage(oldPath).catch(function () {});
+      } else {
+        attachJob = Promise.resolve();
       }
-      pipeline.then(function () {
+
+      if (submitBtn) { submitBtn.disabled = true; submitBtn.textContent = newFile ? "Uploading…" : "Saving…"; }
+
+      attachJob.then(function () {
+        if (isEdit) {
+          var updates = Object.assign({}, entry);
+          // If keeping existing attachment, don't overwrite path/name
+          if (FORM_STATE.attachmentChoice === "keep" && !newFile) {
+            delete updates.pdf_path;
+            delete updates.pdf_name;
+          }
+          return sb.from("journal_entries").update(updates).eq("id", FORM_STATE.editingId).select().single();
+        }
         return sb.from("journal_entries").insert(entry).select().single();
       }).then(function (res) {
         if (res.error) throw res.error;
-        // Re-fetch to get fresh data with the public PDF URL stitched in
         return fetchEntries();
       }).then(function () {
         renderAll();
+        var wasEdit = isEdit;
         resetForm();
         closeForm();
-        flashStatus("Entry saved — visible to everyone now.", "ok");
+        flashStatus(wasEdit ? "Entry updated." : "Entry saved — visible to everyone now.", "ok");
       }).catch(function (err) {
         console.error(err);
         alert("Couldn't save entry: " + (err.message || err));
       }).then(function () {
-        if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = "Save entry"; }
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.textContent = FORM_STATE.mode === "edit" ? "Save changes" : "Save entry";
+        }
       });
     });
   }
 
-  function uploadPdf(file) {
+  function uploadFile(file) {
     var cfg = window.JOURNAL_CONFIG || {};
     var bucket = cfg.storageBucket || "journal-pdfs";
     var safe = file.name.replace(/[^a-zA-Z0-9._-]+/g, "_");
     var path = Date.now() + "_" + Math.random().toString(36).slice(2, 8) + "_" + safe;
-    return sb.storage.from(bucket).upload(path, file, { contentType: "application/pdf", upsert: false })
-      .then(function (res) {
-        if (res.error) throw res.error;
-        return { path: path, name: file.name };
-      });
+    return sb.storage.from(bucket).upload(path, file, {
+      contentType: fileMime(file),
+      upsert: false
+    }).then(function (res) {
+      if (res.error) throw res.error;
+      return { path: path, name: file.name };
+    });
+  }
+
+  function deleteFromStorage(path) {
+    var cfg = window.JOURNAL_CONFIG || {};
+    var bucket = cfg.storageBucket || "journal-pdfs";
+    return sb.storage.from(bucket).remove([path]);
   }
 
   /* When we read entries back, we don't have a public URL stitched in yet.

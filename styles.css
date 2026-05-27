@@ -2792,12 +2792,17 @@ footer.foot {
 
 /* Delete (admin) */
 .j-card { position: relative; }
-.j-del {
-  appearance: none;
-  -webkit-appearance: none;
+.j-admin-btns {
   position: absolute;
   top: -4px;
   right: 0;
+  display: inline-flex;
+  gap: 6px;
+  z-index: 2;
+}
+.j-del, .j-edit {
+  appearance: none;
+  -webkit-appearance: none;
   display: inline-flex;
   align-items: center;
   gap: 6px;
@@ -2811,9 +2816,16 @@ footer.foot {
   text-transform: uppercase;
   line-height: 1;
   cursor: pointer;
-  opacity: 0.72;
+  opacity: 0.78;
   transition: opacity 160ms ease, background 160ms ease, color 160ms ease, border-color 160ms ease, transform 160ms ease;
 }
+.j-edit::before {
+  content: "✎";
+  font-size: 13px;
+  line-height: 1;
+  color: var(--text);
+}
+.j-edit::after { content: "Edit"; }
 .j-del::before {
   content: "×";
   display: inline-grid;
@@ -2824,13 +2836,22 @@ footer.foot {
   line-height: 1;
   color: var(--text);
 }
-.j-del::after {
-  content: "Delete";
-}
+.j-del::after { content: "Delete"; }
+
+.j-row:hover .j-edit,
 .j-row:hover .j-del,
-.j-del:focus-visible {
+.j-edit:focus-visible,
+.j-del:focus-visible { opacity: 1; }
+
+.j-edit:hover {
   opacity: 1;
+  background: var(--text);
+  color: var(--bg);
+  border-color: var(--text);
+  transform: translateX(-1px);
 }
+.j-edit:hover::before { color: var(--bg); }
+
 .j-del:hover {
   opacity: 1;
   background: #B83A2E;
@@ -2838,20 +2859,56 @@ footer.foot {
   border-color: #B83A2E;
   transform: translateX(-1px);
 }
-.j-del:hover::before {
-  color: #fff;
+.j-del:hover::before { color: #fff; }
+
+/* Changelog layout: admin buttons sit slightly higher */
+.j-row--cl .j-admin-btns { top: -2px; right: 0; }
+
+/* Grid layout: tuck inside the card */
+.j-row--grid .j-admin-btns { top: 8px; right: 8px; }
+
+/* Image thumbnail in action button */
+.j-action--img {
+  padding: 4px 12px 4px 4px;
+  gap: 10px;
+}
+.j-img-thumb {
+  display: block;
+  width: 36px;
+  height: 36px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+.j-action--img:hover .j-img-thumb {
+  border-color: var(--bg);
 }
 
-/* Changelog layout: delete button needs different placement (no card-style box) */
-.j-row--cl .j-del {
-  top: -2px;
-  right: 0;
+/* Form drop chip: image preview + existing badge */
+.j-form__drop-preview {
+  display: block;
+  width: 44px;
+  height: 54px;
+  object-fit: cover;
+  border: 1px solid var(--border);
+  background: var(--bg);
+}
+.j-form__drop-chip.is-existing {
+  background: var(--lavender-tint);
+  border-color: var(--lavender);
+}
+.j-form__drop-chip.is-existing .j-form__drop-fname {
+  color: #3A2F6A;
 }
 
-/* Grid layout: pull delete button inside the card a touch */
-.j-row--grid .j-del {
-  top: 8px;
-  right: 8px;
+/* Edit-mode form chrome */
+.j-form.is-editing {
+  border-left-color: var(--yellow);
+}
+.j-form.is-editing .j-form__title::before {
+  content: "✎  ";
+  color: var(--text-soft);
+  font-size: 18px;
 }
 
 /* ---- Layout: Timeline ---- */
