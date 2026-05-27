@@ -282,22 +282,33 @@
   }
 
   function attachPencil(el) {
-    // Make sure absolute children land inside this element
-    var cs = getComputedStyle(el);
-    if (cs.position === "static") el.style.position = "relative";
-
     var btn = document.createElement("button");
     btn.type = "button";
     btn.className = "se-pencil";
     btn.setAttribute("aria-label", "Edit text");
+    btn.setAttribute("data-se-for", el.getAttribute("data-edit"));
     btn.title = "Edit";
     btn.textContent = "✎";
+    btn.style.position = "absolute";
+    btn.style.zIndex = "9999";
+
+    function positionPencil() {
+      var r = el.getBoundingClientRect();
+      btn.style.top  = (r.top  + window.scrollY - 12) + "px";
+      btn.style.left = (r.right + window.scrollX - 16) + "px";
+    }
+
+    document.body.appendChild(btn);
+    positionPencil();
+
     btn.addEventListener("click", function (e) {
       e.preventDefault();
       e.stopPropagation();
       openEditor(el);
     });
-    el.appendChild(btn);
+
+    window.addEventListener("scroll", positionPencil, { passive: true });
+    window.addEventListener("resize", positionPencil, { passive: true });
   }
 
   /* ============================================
