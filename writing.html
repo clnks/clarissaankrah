@@ -34,10 +34,10 @@
   <main>
     <section class="page-head">
       <div class="wrap">
-        <p class="eyebrow page-head__eyebrow">Notes &amp; Observations</p>
-        <h1 class="h-page page-head__title">Writing</h1>
-        <p class="page-head__sub">Plain-English thinking on data protection, AI governance and regulatory compliance.</p>
-        <p class="page-head__note">Longer pieces live on Privacy in Practice. This is where I publish shorter thoughts and observations.</p>
+        <p class="eyebrow page-head__eyebrow" data-edit="head.eyebrow">Notes &amp; Observations</p>
+        <h1 class="h-page page-head__title" data-edit="head.title">Writing</h1>
+        <p class="page-head__sub" data-edit="head.sub">Plain-English thinking on data protection, AI governance and regulatory compliance.</p>
+        <p class="page-head__note" data-edit="head.note">Longer pieces live on Privacy in Practice. This is where I publish shorter thoughts and observations.</p>
       </div>
     </section>
 
@@ -48,13 +48,13 @@
           <article class="list__item" aria-label="Article">
             <span class="list__num">01</span>
             <span class="list__body">
-              <span class="list__date">Coming soon</span>
-              <h2 class="list__title">What the ICO's enforcement decisions actually tell you</h2>
-              <p class="list__desc">Enforcement notices are public and detailed. Here is what reading them regularly teaches you about where organisations actually fail.</p>
+              <span class="list__date" data-edit="piece.1.date">Coming soon</span>
+              <h2 class="list__title" data-edit="piece.1.title">What the ICO's enforcement decisions actually tell you</h2>
+              <p class="list__desc" data-edit="piece.1.desc">Enforcement notices are public and detailed. Here is what reading them regularly teaches you about where organisations actually fail.</p>
               <span class="list__meta">
-                <span class="tag">7 min read</span>
-                <span class="tag">UK GDPR</span>
-                <span class="tag">Enforcement</span>
+                <span class="tag" data-edit="piece.1.tag1">7 min read</span>
+                <span class="tag" data-edit="piece.1.tag2">UK GDPR</span>
+                <span class="tag" data-edit="piece.1.tag3">Enforcement</span>
               </span>
             </span>
             <span class="list__link">Read <span aria-hidden="true">→</span></span>
@@ -63,11 +63,11 @@
           <article class="list__item" aria-label="Article placeholder">
             <span class="list__num">02</span>
             <span class="list__body">
-              <span class="list__date">Coming soon</span>
-              <h2 class="list__title">In preparation</h2>
-              <p class="list__desc">A short note in this slot once the first piece is published.</p>
+              <span class="list__date" data-edit="piece.2.date">Coming soon</span>
+              <h2 class="list__title" data-edit="piece.2.title">In preparation</h2>
+              <p class="list__desc" data-edit="piece.2.desc">A short note in this slot once the first piece is published.</p>
               <span class="list__meta">
-                <span class="tag">Draft</span>
+                <span class="tag" data-edit="piece.2.tag1">Draft</span>
               </span>
             </span>
             <span class="list__link soft">Not yet</span>
@@ -76,11 +76,11 @@
           <article class="list__item" aria-label="Article placeholder">
             <span class="list__num">03</span>
             <span class="list__body">
-              <span class="list__date">Coming soon</span>
-              <h2 class="list__title">In preparation</h2>
-              <p class="list__desc">A short note in this slot once the second piece is published.</p>
+              <span class="list__date" data-edit="piece.3.date">Coming soon</span>
+              <h2 class="list__title" data-edit="piece.3.title">In preparation</h2>
+              <p class="list__desc" data-edit="piece.3.desc">A short note in this slot once the second piece is published.</p>
               <span class="list__meta">
-                <span class="tag">Draft</span>
+                <span class="tag" data-edit="piece.3.tag1">Draft</span>
               </span>
             </span>
             <span class="list__link soft">Not yet</span>
@@ -101,6 +101,9 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
   <script src="scripts.js"></script>
+  <script src="site-edit.js"></script>
 </body>
 </html>

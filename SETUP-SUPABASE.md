@@ -55,6 +55,41 @@ create policy "Admin write" on journal_entries
 
 > ⚠️ Replace `YOUR_EMAIL_HERE@example.com` with **your real email** before running — this is what locks down writes so visitors can't post fake entries.
 
+## 2b. Add the `site_content` table (site-wide text editing)
+
+This table powers the small ✎ pencil edit buttons on the rest of the site (Home, Contact, Writing, Reading…). Each row is an override for one text field on one page — your existing HTML is the fallback, so if a row doesn't exist the original copy still shows. Your HTML files are **never overwritten**.
+
+**SQL Editor → New query**, paste this, click **Run**:
+
+```sql
+-- Site-wide editable text (Home, Contact, Writing, Reading, …)
+create table site_content (
+  page_id    text not null,    -- e.g. "index", "contact", "writing"
+  field_id   text not null,    -- e.g. "hero.bio", "cred.1.body"
+  value      text,
+  updated_at timestamptz default now(),
+  primary key (page_id, field_id)
+);
+
+alter table site_content enable row level security;
+
+-- Anyone can READ overrides (so visitors see your edits)
+create policy "Public read site_content" on site_content
+  for select using (true);
+
+-- Only your account can write.
+-- IMPORTANT: replace the email below with YOUR email before running.
+create policy "Admin write site_content" on site_content
+  for all
+  to authenticated
+  using (auth.jwt() ->> 'email' = 'YOUR_EMAIL_HERE@example.com')
+  with check (auth.jwt() ->> 'email' = 'YOUR_EMAIL_HERE@example.com');
+```
+
+> ⚠️ Same as before — replace `YOUR_EMAIL_HERE@example.com` with your real email.
+
+Once the table exists, the ✎ pencils appear next to editable text as soon as you sign in via the **Admin** pill on any page.
+
 ## 3. Create the PDF storage bucket
 
 1. **Storage** (left sidebar) → **New bucket**.

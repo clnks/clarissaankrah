@@ -40,10 +40,10 @@
           <span class="diamond"></span>
         </div>
         <div class="r-hero__body">
-          <p class="eyebrow r-hero__eyebrow">Reading list <span class="r-hero__star" aria-hidden="true">✦</span></p>
-          <h1 class="r-hero__title">The books on my shelf,<br />the tabs in my browser.</h1>
-          <p class="r-hero__sub">Two parts. The shelf — books, papers, and standards I keep within reach. The web — the newsletters, podcasts, and live references I keep open. Click a spine to pick it up; covers and key annotations load alongside.</p>
-          <p class="r-hero__more">
+          <p class="eyebrow r-hero__eyebrow" data-edit="hero.eyebrow" data-edit-html>Reading list <span class="r-hero__star" aria-hidden="true">✦</span></p>
+          <h1 class="r-hero__title" data-edit="hero.title" data-edit-html>The books on my shelf,<br />the tabs in my browser.</h1>
+          <p class="r-hero__sub" data-edit="hero.sub">Two parts. The shelf — books, papers, and standards I keep within reach. The web — the newsletters, podcasts, and live references I keep open. Click a spine to pick it up; covers and key annotations load alongside.</p>
+          <p class="r-hero__more" data-edit="hero.more" data-edit-html>
             Looking for what I'm actively making and studying? <a class="r-hero__more-link" href="journal.html">See the Journal →</a>
           </p>
         </div>
@@ -147,6 +147,9 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
   <script src="scripts.js"></script>
+  <script src="site-edit.js"></script>
 </body>
 </html>

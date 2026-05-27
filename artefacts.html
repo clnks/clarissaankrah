@@ -34,10 +34,10 @@
   <main>
     <section class="page-head">
       <div class="wrap">
-        <p class="eyebrow page-head__eyebrow">Work · Case Studies</p>
-        <h1 class="h-page page-head__title">Artefacts</h1>
-        <p class="page-head__sub">Worked case studies in data protection practice. Fictional scenarios, real law.</p>
-        <p class="page-head__note">These are not legal advice. They are portfolio pieces demonstrating applied regulatory knowledge.</p>
+        <p class="eyebrow page-head__eyebrow" data-edit="head.eyebrow">Work · Case Studies</p>
+        <h1 class="h-page page-head__title" data-edit="head.title">Artefacts</h1>
+        <p class="page-head__sub" data-edit="head.sub">Worked case studies in data protection practice. Fictional scenarios, real law.</p>
+        <p class="page-head__note" data-edit="head.note">These are not legal advice. They are portfolio pieces demonstrating applied regulatory knowledge.</p>
       </div>
     </section>
 
@@ -48,13 +48,13 @@
           <a class="list__item" role="listitem" href="artefact-01.html">
             <span class="list__num">01</span>
             <span class="list__body">
-              <h2 class="list__title">Model Privacy Notice — SaaS Product</h2>
-              <p class="list__desc">A solo founder building a SaaS tool hosted on GitHub Pages asks for a privacy notice drafted from scratch. No cookies, no analytics, no accounts. Local storage only.</p>
+              <h2 class="list__title" data-edit="art.1.title">Model Privacy Notice — SaaS Product</h2>
+              <p class="list__desc" data-edit="art.1.desc">A solo founder building a SaaS tool hosted on GitHub Pages asks for a privacy notice drafted from scratch. No cookies, no analytics, no accounts. Local storage only.</p>
               <span class="list__meta">
-                <span class="tag">Article 13</span>
-                <span class="tag">Article 14</span>
-                <span class="tag">UK GDPR</span>
-                <span class="tag">PECR</span>
+                <span class="tag" data-edit="art.1.tag1">Article 13</span>
+                <span class="tag" data-edit="art.1.tag2">Article 14</span>
+                <span class="tag" data-edit="art.1.tag3">UK GDPR</span>
+                <span class="tag" data-edit="art.1.tag4">PECR</span>
               </span>
             </span>
             <span class="list__link">Read <span aria-hidden="true">→</span></span>
@@ -63,13 +63,13 @@
           <a class="list__item" role="listitem" href="artefact-02.html">
             <span class="list__num">02</span>
             <span class="list__body">
-              <h2 class="list__title">DPIA — AI-Powered CV Screening Tool</h2>
-              <p class="list__desc">A small HR tech company is introducing an AI tool to screen CVs before human review. Likely to involve special category data inferred from CVs. Automated decisions with significant effect on data subjects.</p>
+              <h2 class="list__title" data-edit="art.2.title">DPIA — AI-Powered CV Screening Tool</h2>
+              <p class="list__desc" data-edit="art.2.desc">A small HR tech company is introducing an AI tool to screen CVs before human review. Likely to involve special category data inferred from CVs. Automated decisions with significant effect on data subjects.</p>
               <span class="list__meta">
-                <span class="tag">Article 35</span>
-                <span class="tag">Automated Decision-Making</span>
-                <span class="tag">Special Category Data</span>
-                <span class="tag">UK GDPR</span>
+                <span class="tag" data-edit="art.2.tag1">Article 35</span>
+                <span class="tag" data-edit="art.2.tag2">Automated Decision-Making</span>
+                <span class="tag" data-edit="art.2.tag3">Special Category Data</span>
+                <span class="tag" data-edit="art.2.tag4">UK GDPR</span>
               </span>
             </span>
             <span class="list__link">Read <span aria-hidden="true">→</span></span>
@@ -78,13 +78,13 @@
           <a class="list__item" role="listitem" href="artefact-03.html">
             <span class="list__num">03</span>
             <span class="list__body">
-              <h2 class="list__title">DSAR Handling — Marketing Agency</h2>
-              <p class="list__desc">A data subject submits a subject access request to a mid-sized digital marketing agency. The request is broad. Third party data is involved. Identity needs verifying.</p>
+              <h2 class="list__title" data-edit="art.3.title">DSAR Handling — Marketing Agency</h2>
+              <p class="list__desc" data-edit="art.3.desc">A data subject submits a subject access request to a mid-sized digital marketing agency. The request is broad. Third party data is involved. Identity needs verifying.</p>
               <span class="list__meta">
-                <span class="tag">Article 15</span>
-                <span class="tag">DSARs</span>
-                <span class="tag">Data Subject Rights</span>
-                <span class="tag">UK GDPR</span>
+                <span class="tag" data-edit="art.3.tag1">Article 15</span>
+                <span class="tag" data-edit="art.3.tag2">DSARs</span>
+                <span class="tag" data-edit="art.3.tag3">Data Subject Rights</span>
+                <span class="tag" data-edit="art.3.tag4">UK GDPR</span>
               </span>
             </span>
             <span class="list__link">Read <span aria-hidden="true">→</span></span>
@@ -105,6 +105,9 @@
     </div>
   </footer>
 
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
   <script src="scripts.js"></script>
+  <script src="site-edit.js"></script>
 </body>
 </html>
