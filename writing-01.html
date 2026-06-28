@@ -100,6 +100,27 @@
       color: var(--text);
     }
     .prose__intro p:last-child { margin-bottom: 0; }
+    .article-img {
+      display: block;
+      width: 100%;
+      max-width: var(--measure);
+      height: auto;
+      margin: 32px 0;
+    }
+    .article-img-caption {
+      font-size: 12px;
+      color: var(--text-soft);
+      letter-spacing: 0.04em;
+      margin-top: -20px;
+      margin-bottom: 28px;
+      max-width: var(--measure);
+    }
+    .article-img-full {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 32px 0 10px;
+    }
     .back-link {
       display: inline-flex;
       align-items: center;
@@ -220,6 +241,14 @@
           <div class="pull-quote">
             <p>This is not an accident. It is the point.</p>
           </div>
+
+          <img
+            class="article-img-full"
+            src="images/kylie-meta.avif"
+            alt="Meta Starfire campaign image: 'You ask. Kylie answers.' Kylie Jenner wears the Meta smart glasses alongside an AI assistant chat interface demo."
+            loading="lazy"
+          />
+          <p class="article-img-caption">Meta's campaign for the Starfire Kylie Edition. Source: Meta.</p>
 
           <p>Last week, Meta dropped the Ray-Ban branding from its smart glasses line and launched three new models under its own name: the Adventurer, the Fury, and the flagship Starfire, co-designed with Kylie Jenner. The Starfire starts at $399, includes a Kylie AI voice option, and is the first major wearable tech collaboration for a family that has, for over fifteen years, made surveillance their business model — just with themselves as the product.</p>
         </div>
