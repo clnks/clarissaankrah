@@ -439,6 +439,7 @@ main {
 }
 
 .feature:hover { background: rgba(196, 181, 244, 0.06); }
+.feature + .feature { border-top: none; }
 
 .feature__label {
   font-size: 11px;
