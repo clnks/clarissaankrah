@@ -115,6 +115,62 @@
     /* Essay layout: single column, no step numbers */
     .prose .prose__step { grid-template-columns: 1fr; gap: 0; }
     .prose .prose__step-num { display: none; }
+    /* Two-column layout: article + sticky TOC */
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 80px;
+      align-items: start;
+    }
+    .article-toc {
+      position: sticky;
+      top: 88px;
+    }
+    .toc-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin: 0 0 14px;
+    }
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .toc-list li + li {
+      margin-top: 2px;
+    }
+    .toc-list a {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 6px 0 6px 12px;
+      border-left: 1px solid var(--border);
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+    .toc-list a:hover {
+      color: var(--text);
+      border-left-color: var(--lavender);
+    }
+    @media (max-width: 860px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .article-toc {
+        position: static;
+        order: -1;
+        padding: 24px 0 32px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 8px;
+      }
+      .toc-list { display: flex; flex-wrap: wrap; gap: 4px 0; }
+      .toc-list li { flex: 0 0 100%; }
+    }
   </style>
 </head>
 <body>
@@ -155,6 +211,8 @@
 
     <section class="prose">
       <div class="wrap">
+        <div class="article-layout">
+          <div class="article-main">
 
         <div class="prose__intro">
           <p>Something is perplexing about the product brief that produced the Meta Starfire Kylie Edition. The glasses feature a small gem on the right lens, positioned, according to the product launch materials, to catch light "the way camera flashes catch Kylie." In other words, a piece of hardware explicitly designed around the experience of being relentlessly photographed and surveilled. And it comes fitted with a 12-megapixel camera that will photograph everyone around you, hands-free, all day long.</p>
@@ -169,7 +227,7 @@
         <div class="prose__step">
           <span class="prose__step-num">01</span>
           <div class="prose__step-body">
-            <h3>Silicon Valley finally figured out who controls the till</h3>
+            <h3 id="silicon-valley">Silicon Valley finally figured out who controls the till</h3>
             <p>The partnership has been accompanied by a comment circulating widely online, to the effect that Silicon Valley has finally worked out who actually controls consumer spending: the Kardashians. It reads as a joke. It shouldn't.</p>
             <p>What the Kardashian-Jenner family has built over fifteen years isn't just fame; it's a framework for making people comfortable with visibility. Every product they've created, from shapewear to cosmetics to tequila, lands in front of an audience that already trusts them as a guide to what's worth wanting. That's an enormously valuable thing to attach to a camera. It genuinely shapes how people feel about a product category.</p>
             <p>Meta has struggled to crack mainstream consumer adoption of smart glasses beyond the early-adopter tech demographic. Daily users of its glasses tripled year-over-year in 2025, which sounds impressive until you consider that the total numbers remained modest relative to the size of the overall market. The Jenner partnership is a deliberate attempt to reach a different audience entirely: people who would never buy a piece of hardware because of its specs, but who absolutely will because their favourite influencer says it matches her aesthetic.</p>
@@ -183,7 +241,7 @@
         <div class="prose__step">
           <span class="prose__step-num">02</span>
           <div class="prose__step-body">
-            <h3>We have been here before — and we forgot</h3>
+            <h3 id="we-forgot">We have been here before — and we forgot</h3>
             <p>When Google Glass launched in 2013 with enormous fanfare and equally enormous backlash, Glass was essentially killed by the social response it provoked. "Glassholes" became a term of genuine contempt. Public spaces banned them, from bars to cinemas. People became viscerally uncomfortable with a device that could be recording at any moment, worn by someone who looked like they were just standing in a queue.</p>
             <p>The technology then was less capable than what Meta is shipping now. But what is important to note is that what is different today is not the hardware; it is the cultural groundwork. A decade of social media has normalised the idea that being in public means being content. Ring doorbells record neighbours. TikTok normalises pointing a camera at strangers. And crucially, the Kardashians have spent fifteen years demonstrating that surveillance is not something that happens to you; it is something you perform in order for relevance and visibility.</p>
             <p>And this is where the Kardashian-Jenner family's role becomes genuinely interesting, rather than just ironic. Kylie Jenner has spent her adult life navigating one of the most extreme versions of public visibility imaginable — paparazzi, reality TV, social media scrutiny at a scale most of us can't picture. She's also built a business on understanding exactly how to control the conditions under which she's seen. That expertise, that literacy around image and visibility, is precisely what Meta is buying into. The question worth asking is what it means when that expertise gets pointed outward — at the rest of us.</p>
@@ -196,7 +254,7 @@
         <div class="prose__step">
           <span class="prose__step-num">03</span>
           <div class="prose__step-body">
-            <h3>What the glasses actually collect</h3>
+            <h3 id="what-collected">What the glasses actually collect</h3>
             <p>From a data protection standpoint, the glasses present a layered set of concerns that go beyond the obvious camera question. Meta updated its privacy policy for the Ray-Ban line in April 2025, making two significant changes:</p>
             <div class="callout">
               <span class="callout__label">Policy changes — April 2025</span>
@@ -217,7 +275,7 @@
         <div class="prose__step">
           <span class="prose__step-num">04</span>
           <div class="prose__step-body">
-            <h3>Legal landscape</h3>
+            <h3 id="legal">Legal landscape</h3>
             <p>Under the Illinois Biometric Information Privacy Act (BIPA), collecting biometric data — including via facial recognition — requires written consent. Several US states have similar provisions. The GDPR in the UK and the EU imposes strict conditions on the processing of biometric data. However, recording in public spaces is generally legal in most jurisdictions, and the legal line between "capturing a face" and "processing biometric data" remains actively contested.</p>
             <p>The Information Commissioner's Office opened an investigation into Meta's glasses practices earlier this year, following the subcontractor footage controversy.</p>
           </div>
@@ -226,7 +284,7 @@
         <div class="prose__step">
           <span class="prose__step-num">05</span>
           <div class="prose__step-body">
-            <h3>Zuckerberg's real acquisition</h3>
+            <h3 id="real-acquisition">Zuckerberg's real acquisition</h3>
             <p>Meta's move away from the Ray-Ban brand is significant. Ray-Ban is, as Meta's own CTO acknowledged, iconic, and that iconicity provided a form of brand insulation. When a company with Meta's privacy track record puts its name front and centre on a camera people wear on their face, it is taking a risk. The bet, clearly, is that cultural endorsement can do what brand heritage used to do.</p>
             <p>This is the real nature of what Zuckerberg has acquired. An audience's trust in a person and that person's demonstrated ability to make her followers want what she has. Meta has spent years building platforms that the Kardashians used to become influential. Now it is buying that influence back — as a distribution channel for hardware it cannot sell on its own merits.</p>
             <div class="pull-quote">
@@ -238,7 +296,7 @@
         <div class="prose__step">
           <span class="prose__step-num">06</span>
           <div class="prose__step-body">
-            <h3>What data protection means in a world of ambient capture</h3>
+            <h3 id="ambient-capture">What data protection means in a world of ambient capture</h3>
             <p>The practical challenge for data protection, from a regulatory and governance perspective, is that the current framework was built around a model of deliberate data collection: you fill out a form, you share a document, you sign up for a service. Ambient capture — the continuous, incidental, often invisible recording that wearable cameras enable — breaks that model at the level of design.</p>
             <p>Bystanders captured in the background of someone's Kylie glasses footage have not consented to anything. They may not know they have been recorded. Their faces, voices, and surroundings may be used to train AI systems they have never interacted with. This is, I believe, the real catch: data is so valuable that the business case for ambient capture exists entirely separately from the glasses themselves. Existing data protection law, including GDPR, has provisions around lawful basis and purpose limitation, but enforcing those principles against hardware that captures the physical world in real time, across millions of devices, is a fundamentally different regulatory challenge than auditing a database.</p>
           </div>
@@ -247,7 +305,7 @@
         <div class="prose__step">
           <span class="prose__step-num">07</span>
           <div class="prose__step-body">
-            <h3>The consent we never gave</h3>
+            <h3 id="consent">The consent we never gave</h3>
             <p>There is a version of this story in which Kylie Jenner's involvement is irrelevant — just a marketing tactic for a piece of hardware that raises the same questions regardless of who designed the case. That version is probably correct, technically. But it misses something.</p>
             <p>Influence works by making things feel safe, desirable, and normal. The Kardashians have spent their entire careers doing exactly that for products ranging from cosmetics to cryptocurrency. When someone with 400 million followers normalises wearing a camera on her face, she is not just selling glasses. She is shifting the baseline of what people expect from public space.</p>
             <p>Google Glass failed partly because it felt alien. Because the person wearing it looked like they were doing something — recording you. Meta's bet, with the Kylie Edition, is that glasses that look like something you would actually wear will not provoke the same reaction. That the gem will catch the light beautifully. That you will not think about what the camera sees.</p>
@@ -258,7 +316,22 @@
           </div>
         </div>
 
-      </div>
+          </div><!-- /article-main -->
+
+          <nav class="article-toc" aria-label="Article sections">
+            <p class="toc-label">In this essay</p>
+            <ol class="toc-list">
+              <li><a href="#silicon-valley">Silicon Valley and the till</a></li>
+              <li><a href="#we-forgot">We have been here before</a></li>
+              <li><a href="#what-collected">What the glasses collect</a></li>
+              <li><a href="#legal">Legal landscape</a></li>
+              <li><a href="#real-acquisition">Zuckerberg's real acquisition</a></li>
+              <li><a href="#ambient-capture">Data protection &amp; ambient capture</a></li>
+              <li><a href="#consent">The consent we never gave</a></li>
+            </ol>
+          </nav>
+        </div><!-- /article-layout -->
+      </div><!-- /wrap -->
     </section>
   </main>
 
