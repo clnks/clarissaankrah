@@ -31,110 +31,153 @@
     </div>
   </header>
 
-  <main>
-    <section class="article-head">
-      <div class="wrap-narrow">
-        <a class="back-link" href="artefacts.html"><span aria-hidden="true">←</span> Back to Artefacts</a>
-        <p class="eyebrow">Artefact 04 · Real Deliverable</p>
-        <h1 class="article-head__title">Privacy Policy — Hyphn</h1>
-        <div class="article-head__tags">
-          <span class="tag">Article 13</span>
-          <span class="tag">Lawful Basis</span>
-          <span class="tag">International Transfers</span>
-          <span class="tag">UK GDPR</span>
-          <span class="tag">PECR</span>
+  <main class="art-case">
+
+    <section class="art-hero">
+      <div class="wrap">
+        <a class="back-link" href="artefacts.html"><span aria-hidden="true">←</span> Artefacts</a>
+        <p class="art-hero__eyebrow">Real Deliverable · Hyphn · June 2026</p>
+        <h1 class="art-hero__title">Privacy Policy</h1>
+        <div class="art-hero__tags">
+          <span class="art-tag">Article 13</span>
+          <span class="art-tag">Lawful Basis</span>
+          <span class="art-tag">International Transfers</span>
+          <span class="art-tag">UK GDPR</span>
+          <span class="art-tag">PECR</span>
         </div>
-        <p class="btn-row" style="margin-top: 28px;">
-          <a class="btn" href="uploads/privacy-policy-hyphn.pdf" target="_blank" rel="noopener">Read full policy (PDF) <span aria-hidden="true">↗</span></a>
-          <a class="btn btn--ghost" href="https://hyphn-kappa.vercel.app" target="_blank" rel="noopener">View product <span aria-hidden="true">↗</span></a>
-        </p>
       </div>
     </section>
 
-    <section class="prose">
-      <div class="wrap-narrow">
-
-        <div class="prose__step">
-          <div class="prose__step-num">The brief</div>
-          <div class="prose__step-body">
-            <h3>A live SaaS product that needed a policy before launch.</h3>
-            <p><a href="https://hyphn-kappa.vercel.app" target="_blank" rel="noopener">Hyphn</a> is a project management and invoicing tool for multihyphenates — people juggling freelance work, side projects, and a main job at once. Unlike the fictional scenarios elsewhere on this page, this is a <strong>real product I am building</strong>, and the privacy policy is a deliverable that will sit on the live site.</p>
-            <p>The brief was not a template fill-in. Hyphn collects account data, project and client records, usage analytics, device information, and payment details through third-party processors. Users can sign in with Google. Data may leave the UK. The policy had to reflect what the product actually does — not what a generic SaaS boilerplate assumes.</p>
-          </div>
+    <section class="art-overview">
+      <div class="wrap art-overview__grid">
+        <div class="art-overview__prose">
+          <h2 id="brief">The Brief</h2>
+          <p><a href="https://hyphn-kappa.vercel.app" target="_blank" rel="noopener">Hyphn</a> is a project management and invoicing tool for multihyphenates: people juggling freelance work, side projects, and a main job at once. Unlike the fictional scenarios elsewhere on this page, this is a real product I am building, and the privacy policy is a deliverable that will sit on the live site.</p>
+          <p>The brief was not a template fill-in. Hyphn collects account data, project and client records, usage analytics, device information, and payment details through third-party processors. Users can sign in with Google. Data may leave the UK. The policy had to reflect what the product actually does, not what a generic SaaS boilerplate assumes.</p>
         </div>
-
-        <div class="prose__step">
-          <div class="prose__step-num">The legal framework</div>
-          <div class="prose__step-body">
-            <h3>Article 13 transparency, mapped to a multi-processor stack.</h3>
-            <p><strong>Article 13</strong> requires that when personal data is collected from the data subject, they are told — at the point of collection — who the controller is, what is collected, why, the lawful basis, recipients, retention, rights, and how to complain.</p>
-            <p>For Hyphn, that meant working backwards from the architecture: Firebase Authentication and Firestore for accounts and app data, Stripe for payments, Resend for transactional email, Google Workspace for support inbox routing. Each processor needed naming, a purpose, and a transfer story where data leaves the UK.</p>
-            <p><strong>PECR</strong> sits alongside for cookies and similar technologies. The policy distinguishes essential cookies (session, security) from analytics and marketing cookies that require consent.</p>
+        <aside class="art-sidebar" aria-label="Project details">
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Product</p>
+            <p class="art-sidebar__val">Hyphn</p>
           </div>
-        </div>
-
-        <div class="prose__step">
-          <div class="prose__step-num">Key decisions</div>
-          <div class="prose__step-body">
-            <h3>Four calls worth showing my working on.</h3>
-            <ul>
-              <li><strong>Lawful basis per activity, not one blanket basis.</strong> Account and project data runs on contract (Article 6(1)(b)). Security monitoring and fraud prevention on legitimate interests (6(1)(f)). Marketing communications on consent (6(1)(a)). Legal and tax records on legal obligation (6(1)(c)). Mapping each processing activity to a specific basis avoids the common mistake of claiming "legitimate interests" for everything.</li>
-              <li><strong>Subprocessors named, not hidden.</strong> Employers and regulators increasingly expect transparency about who actually processes data. The policy lists Firebase/Google Cloud, Stripe, Resend, and Google Workspace by name, with a plain-language description of what each one does.</li>
-              <li><strong>Transfer mechanisms matched to destination.</strong> US transfers reference UK IDTA and SCCs where applicable; EU transfers reference adequacy or SCCs; other destinations get case-by-case safeguards. This is the section most templates get wrong — copying "we use standard contractual clauses" without tying it to the actual processor geography.</li>
-              <li><strong>Retention tied to purpose, with a deletion path.</strong> Active account data is kept while the account exists. Support enquiries: two years. Payment records: seven years (tax). Security logs: twelve months. The policy also states what happens on account deletion and how long backups may persist — because "we delete your data when you ask" is not the same as "we delete your data immediately from every system."</li>
-            </ul>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Type</p>
+            <p class="art-sidebar__val">Real deliverable</p>
           </div>
-        </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Role</p>
+            <p class="art-sidebar__val">Privacy policy drafting</p>
+          </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Stack</p>
+            <p class="art-sidebar__val">Firebase · Stripe · Resend · Google Workspace</p>
+          </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Framework</p>
+            <p class="art-sidebar__val">UK GDPR · PECR · Article 13</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <div class="prose__step">
-          <div class="prose__step-num">The output</div>
-          <div class="prose__step-body">
-            <h3>Privacy policy (extract).</h3>
-            <p>The full document is available as a <a href="uploads/privacy-policy-hyphn.pdf" target="_blank" rel="noopener">PDF download</a>. Below is an extract showing structure and tone.</p>
+    <section class="art-body">
+      <div class="wrap">
+        <div class="art-layout">
 
-            <div class="output-block">
-              <p class="doc-meta">Privacy Policy · Hyphn · Effective 29 June 2026 · Version 1.0</p>
+          <div class="art-main">
 
-              <h4>Who we are</h4>
-              <p>Hyphn ("we", "us", "our") is the data controller for the personal data described in this policy. If you have questions, contact us at <em>privacy@hyphn.app</em>.</p>
-
-              <h4>What we collect</h4>
-              <p><strong>Account and profile data:</strong> name, email address, profile picture (if you sign in with Google), and account preferences.</p>
-              <p><strong>Project and business data:</strong> client names, project details, tasks, invoices, and time entries you create in the app.</p>
-              <p><strong>Usage and device data:</strong> how you use the app, IP address, browser type, device identifiers, and crash logs.</p>
-              <p><strong>Payment data:</strong> billing details processed by Stripe. We do not store full card numbers.</p>
-
-              <h4>Why we collect it and on what basis</h4>
-              <ul>
-                <li><strong>Contract (Article 6(1)(b))</strong> — to provide the Hyphn service, manage your account, and process your projects and invoices.</li>
-                <li><strong>Legitimate interests (Article 6(1)(f))</strong> — to improve the app, prevent fraud, and keep the service secure.</li>
-                <li><strong>Consent (Article 6(1)(a))</strong> — for optional marketing emails and non-essential cookies. You can withdraw consent at any time.</li>
-                <li><strong>Legal obligation (Article 6(1)(c))</strong> — to comply with tax, accounting, and regulatory requirements.</li>
-              </ul>
-
-              <h4>Who else sees it</h4>
-              <p>We share data with trusted processors who help us run Hyphn: Firebase/Google Cloud (hosting and authentication), Stripe (payments), Resend (email), and Google Workspace (support). Each operates under a data processing agreement.</p>
-
-              <h4>International transfers</h4>
-              <p>Some processors are based outside the UK. Where data is transferred to the US, we rely on the UK International Data Transfer Agreement and Standard Contractual Clauses. Transfers to the EU rely on UK adequacy regulations or SCCs.</p>
-
-              <h4>Your rights</h4>
-              <p>You can access, correct, delete, or export your data, object to processing, restrict processing, and withdraw consent. You also have the right to complain to the Information Commissioner's Office at <em>ico.org.uk</em>.</p>
+            <div class="art-section">
+              <p class="art-section__label">Framework</p>
+              <h2 class="art-section__title" id="framework">Article 13 transparency</h2>
+              <p class="art-section__desc"><strong>Article 13</strong> requires that when personal data is collected from the data subject, they are told at the point of collection who the controller is, what is collected, why, the lawful basis, recipients, retention, rights, and how to complain.</p>
+              <p class="art-section__desc">For Hyphn, that meant working backwards from the architecture: Firebase Authentication and Firestore for accounts and app data, Stripe for payments, Resend for transactional email, Google Workspace for support inbox routing. Each processor needed naming, a purpose, and a transfer story where data leaves the UK.</p>
+              <p class="art-section__desc"><strong>PECR</strong> sits alongside for cookies and similar technologies. The policy distinguishes essential cookies (session, security) from analytics and marketing cookies that require consent.</p>
             </div>
-          </div>
-        </div>
 
-        <div class="prose__step">
-          <div class="prose__step-num">Reflection</div>
-          <div class="prose__step-body">
-            <h3>What this deliverable demonstrates.</h3>
-            <p>Drafting for a real product forces a different standard than a classroom exercise. Every sentence has to survive contact with the actual tech stack. If Firebase handles authentication, the policy must say so. If Stripe processes payments, the policy must not claim "we never share your data with third parties."</p>
-            <p>The skill employers care about is not copying a template — it is <em>translating architecture into transparency</em>. Mapping lawful bases to specific activities, naming subprocessors honestly, and writing retention schedules that reflect how backups actually work. That is what this policy is designed to show.</p>
-          </div>
-        </div>
+            <div class="art-section">
+              <p class="art-section__label">Analysis</p>
+              <h2 class="art-section__title" id="decisions">Key decisions</h2>
+              <ul class="art-points">
+                <li><strong>Lawful basis per activity, not one blanket basis</strong> Account and project data runs on contract (Article 6(1)(b)). Security monitoring and fraud prevention on legitimate interests (6(1)(f)). Marketing communications on consent (6(1)(a)). Legal and tax records on legal obligation (6(1)(c)).</li>
+                <li><strong>Subprocessors named, not hidden</strong> The policy lists Firebase/Google Cloud, Stripe, Resend, and Google Workspace by name, with a plain-language description of what each one does.</li>
+                <li><strong>Transfer mechanisms matched to destination</strong> US transfers reference UK IDTA and SCCs where applicable; EU transfers reference adequacy or SCCs; other destinations get case-by-case safeguards.</li>
+                <li><strong>Retention tied to purpose, with a deletion path</strong> Active account data is kept while the account exists. Support enquiries: two years. Payment records: seven years (tax). Security logs: twelve months. The policy also states what happens on account deletion and how long backups may persist.</li>
+              </ul>
+            </div>
 
+            <div class="art-section art-section--alt">
+              <p class="art-section__label">Deliverable</p>
+              <span class="art-section__badge">Clarissa's Work</span>
+              <h2 class="art-section__title" id="deliverable">Privacy policy</h2>
+              <p class="art-section__desc">Written for production use on Hyphn. The full document is available as a PDF download. Below is an extract showing structure and tone.</p>
+
+              <div class="art-deliverable">
+                <a class="art-deliverable__thumb" href="uploads/privacy-policy-hyphn.pdf" target="_blank" rel="noopener">
+                  <p class="art-deliverable__doc-label">PDF · 2 pages</p>
+                  <p class="art-deliverable__doc-title">Hyphn Privacy Policy</p>
+                </a>
+                <div>
+                  <h3 class="art-deliverable__title">Hyphn Privacy Policy</h3>
+                  <div class="art-deliverable__meta">
+                    <p>Effective 29 June 2026 · Version 1.0</p>
+                    <p>Contact: privacy@hyphn.app</p>
+                  </div>
+                  <div class="btn-row">
+                    <a class="btn" href="uploads/privacy-policy-hyphn.pdf" target="_blank" rel="noopener">Read full policy <span aria-hidden="true">↗</span></a>
+                    <a class="btn btn--ghost" href="https://hyphn-kappa.vercel.app" target="_blank" rel="noopener">View product <span aria-hidden="true">↗</span></a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="output-block" style="margin-top:32px">
+                <p class="doc-meta">Extract · Privacy Policy · Hyphn</p>
+                <h4>Who we are</h4>
+                <p>Hyphn ("we", "us", "our") is the data controller for the personal data described in this policy.</p>
+                <h4>What we collect</h4>
+                <p><strong>Account and profile data:</strong> name, email address, profile picture (if you sign in with Google), and account preferences.</p>
+                <p><strong>Project and business data:</strong> client names, project details, tasks, invoices, and time entries you create in the app.</p>
+                <h4>Why we collect it and on what basis</h4>
+                <ul>
+                  <li><strong>Contract (Article 6(1)(b)):</strong> to provide the Hyphn service and manage your account.</li>
+                  <li><strong>Legitimate interests (Article 6(1)(f)):</strong> to improve the app, prevent fraud, and keep the service secure.</li>
+                  <li><strong>Consent (Article 6(1)(a)):</strong> for optional marketing emails and non-essential cookies.</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="art-section">
+              <p class="art-section__label">Insight</p>
+              <span class="art-section__badge">Clarissa's Work</span>
+              <h2 class="art-section__title" id="insight">What this demonstrates</h2>
+              <p class="art-section__desc">Drafting for a real product forces a different standard than a classroom exercise. Every sentence has to survive contact with the actual tech stack. If Firebase handles authentication, the policy must say so. If Stripe processes payments, the policy must not claim "we never share your data with third parties."</p>
+              <p class="art-section__desc">The skill employers care about is not copying a template. It is <em>translating architecture into transparency</em>: mapping lawful bases to specific activities, naming subprocessors honestly, and writing retention schedules that reflect how backups actually work.</p>
+            </div>
+
+          </div>
+
+          <nav class="art-toc" aria-label="Sections in this case study">
+            <p class="art-toc__label">Jump to</p>
+            <ol class="art-toc__list">
+              <li><a href="#brief">The brief</a></li>
+              <li><a href="#framework">Legal framework</a></li>
+              <li><a href="#decisions">Key decisions</a></li>
+              <li><a href="#deliverable">The deliverable</a></li>
+              <li><a href="#insight">What this demonstrates</a></li>
+            </ol>
+          </nav>
+
+        </div>
       </div>
     </section>
+
+    <a class="art-next" href="artefact-01.html">
+      <div>
+        <p class="art-next__label">Next case study</p>
+        <p class="art-next__name">Model Privacy Notice · SaaS Product</p>
+      </div>
+      <span class="art-next__arrow" aria-hidden="true">→</span>
+    </a>
+
   </main>
 
   <footer class="foot" role="contentinfo">

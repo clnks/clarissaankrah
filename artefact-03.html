@@ -31,111 +31,138 @@
     </div>
   </header>
 
-  <main>
-    <section class="article-head">
-      <div class="wrap-narrow">
-        <a class="back-link" href="artefacts.html"><span aria-hidden="true">←</span> Back to Artefacts</a>
-        <p class="eyebrow">Artefact 03 · Case Study</p>
-        <h1 class="article-head__title">DSAR Handling — Marketing Agency</h1>
-        <div class="article-head__tags">
-          <span class="tag">Article 15</span>
-          <span class="tag">DSARs</span>
-          <span class="tag">Data Subject Rights</span>
-          <span class="tag">UK GDPR</span>
+  <main class="art-case">
+
+    <section class="art-hero">
+      <div class="wrap">
+        <a class="back-link" href="artefacts.html"><span aria-hidden="true">←</span> Artefacts</a>
+        <p class="art-hero__eyebrow">Fictional Scenario · Case Study · 2026</p>
+        <h1 class="art-hero__title">DSAR Handling</h1>
+        <div class="art-hero__tags">
+          <span class="art-tag">Article 15</span>
+          <span class="art-tag">DSARs</span>
+          <span class="art-tag">Data Subject Rights</span>
+          <span class="art-tag">UK GDPR</span>
         </div>
       </div>
     </section>
 
-    <section class="prose">
-      <div class="wrap-narrow">
-
-        <div class="prose__step">
-          <div class="prose__step-num">The scenario</div>
-          <div class="prose__step-body">
-            <h3>A broad request, a complex inbox, a clock that has started.</h3>
-            <p>The brief: a former employee of a client brand emails a mid-sized digital marketing agency asking for "all data you hold on me". The request arrives at the generic <em>hello@</em> inbox on a Friday afternoon. The agency holds the requester's personal data in three places — campaign analytics tied to historical work for their previous employer, email correspondence in shared inboxes, and a CRM record from a separate prospect cycle three years ago. Third-party data is woven through all three.</p>
-          </div>
+    <section class="art-overview">
+      <div class="wrap art-overview__grid">
+        <div class="art-overview__prose">
+          <h2 id="brief">The Brief</h2>
+          <p>A former employee of a client brand emails a mid-sized digital marketing agency asking for "all data you hold on me". The request arrives at the generic <em>hello@</em> inbox on a Friday afternoon. The agency holds the requester's personal data in three places: campaign analytics tied to historical work for their previous employer, email correspondence in shared inboxes, and a CRM record from a separate prospect cycle three years ago. Third-party data is woven through all three.</p>
         </div>
-
-        <div class="prose__step">
-          <div class="prose__step-num">Handling, step by step</div>
-          <div class="prose__step-body">
-            <h3>Five decisions, in the order they were made.</h3>
-            <ul>
-              <li><strong>Receipt and routing.</strong> The hello@ inbox is monitored by an admin who has a documented "if it looks like a rights request, forward to the DPO within one business day" rule. The request was logged in the rights-request register on Monday morning. <em>The DPA 2018 does not require requests to come via a particular channel — any reasonable communication starts the clock.</em></li>
-
-              <li><strong>Identity verification.</strong> The agency does not have a customer account for this person, so cannot verify by login. We requested a copy of one form of government ID and a recent utility bill, with the explanation that this is to protect the data, not to obstruct the request. ID was verified within two days. <em>Verification suspends the clock only where the request is from a person whose identity is genuinely in doubt — not as a default delay tactic.</em></li>
-
-              <li><strong>Clock start.</strong> The one-month statutory clock started on the day of receipt, not the day verification completed (because verification was reasonable and proportionate, not the kind of clarification that resets the clock). Internal deadline set to day 25 to leave a buffer.</li>
-
-              <li><strong>Scope clarification.</strong> The request was broad. We sent a polite clarification asking whether the requester wanted everything, or whether there were specific contexts they had in mind. <em>This is allowed, but does not entitle us to refuse to act on the original request if no narrowing is offered.</em> The requester replied with two priority areas and confirmed they still wanted everything else.</li>
-
-              <li><strong>Search, redaction, third-party data.</strong> Search ran across the CRM, the shared inboxes (with keyword and address-based queries), and the analytics platform. Hits were exported to a review workspace. Each document was reviewed for: third-party personal data (redacted unless the third party consented or it was reasonable to disclose), legally privileged content (withheld with reason given), and confidential business information that did not relate to the data subject (out of scope).</li>
-            </ul>
+        <aside class="art-sidebar" aria-label="Project details">
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Scenario</p>
+            <p class="art-sidebar__val">Marketing agency DSAR</p>
           </div>
-        </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Type</p>
+            <p class="art-sidebar__val">Fictional case study</p>
+          </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Deliverable</p>
+            <p class="art-sidebar__val">DSAR response letter</p>
+          </div>
+          <div class="art-sidebar__row">
+            <p class="art-sidebar__label">Framework</p>
+            <p class="art-sidebar__val">Article 15 · UK GDPR</p>
+          </div>
+        </aside>
+      </div>
+    </section>
 
-        <div class="prose__step">
-          <div class="prose__step-num">The response</div>
-          <div class="prose__step-body">
-            <h3>Drafted response letter.</h3>
+    <section class="art-body">
+      <div class="wrap">
+        <div class="art-layout">
 
-            <div class="output-block">
-              <p class="doc-meta">Subject access request response · Reference DSAR-2026-014 · Sent day 22 of 30</p>
+          <div class="art-main">
 
-              <p>Dear <em>[Requester]</em>,</p>
-
-              <p>Thank you for your subject access request received on <em>[date]</em>. We are writing to confirm that we have completed our search and to provide the information you are entitled to under Article 15 of the UK GDPR.</p>
-
-              <h4>What we hold about you</h4>
-              <ul>
-                <li><strong>CRM record</strong> — created during a prospecting cycle in 2023. Contains your name, business email, job title at the time, and notes from two meetings. A copy is enclosed at <em>Appendix A</em>.</li>
-                <li><strong>Email correspondence</strong> — 47 messages across two shared inboxes, between July 2023 and February 2025. A bundle of these messages, redacted as set out below, is enclosed at <em>Appendix B</em>.</li>
-                <li><strong>Campaign analytics</strong> — engagement records relating to campaigns run for <em>[previous employer]</em> while you were employed there. These records relate to your professional activity rather than identifying personal characteristics, and are summarised at <em>Appendix C</em>.</li>
+            <div class="art-section">
+              <p class="art-section__label">Process</p>
+              <h2 class="art-section__title" id="process">Handling, step by step</h2>
+              <ul class="art-points">
+                <li><strong>Receipt and routing</strong> The hello@ inbox is monitored by an admin who has a documented "if it looks like a rights request, forward to the DPO within one business day" rule. The request was logged in the rights-request register on Monday morning. The DPA 2018 does not require requests to come via a particular channel: any reasonable communication starts the clock.</li>
+                <li><strong>Identity verification</strong> The agency does not have a customer account for this person, so cannot verify by login. We requested a copy of one form of government ID and a recent utility bill. ID was verified within two days. Verification suspends the clock only where the request is from a person whose identity is genuinely in doubt, not as a default delay tactic.</li>
+                <li><strong>Clock start</strong> The one-month statutory clock started on the day of receipt, not the day verification completed. Internal deadline set to day 25 to leave a buffer.</li>
+                <li><strong>Scope clarification</strong> The request was broad. We sent a polite clarification asking whether the requester wanted everything, or whether there were specific contexts they had in mind. This is allowed, but does not entitle us to refuse to act on the original request if no narrowing is offered.</li>
+                <li><strong>Search, redaction, third-party data</strong> Search ran across the CRM, shared inboxes, and the analytics platform. Each document was reviewed for third-party personal data, legally privileged content, and confidential business information that did not relate to the data subject.</li>
               </ul>
-
-              <h4>What we have not provided, and why</h4>
-              <ul>
-                <li>Personal data of other identifiable individuals has been redacted from the email bundle where their consent was not given and disclosure to you would not be reasonable in the circumstances. We have noted the reason for each redaction in the bundle index.</li>
-                <li>A small number of documents were marked privileged in the context of an ongoing matter and have been withheld on that basis. We have included the document references and the reason for withholding.</li>
-                <li>Internal business records that do not contain your personal data are out of scope of a subject access request and are not included.</li>
-              </ul>
-
-              <h4>Other information you are entitled to</h4>
-              <p>The purposes of our processing, the categories of data concerned, the recipients and our retention periods are set out in our privacy notice, which is enclosed for ease of reference. You have the right to ask us to rectify or erase your personal data, to restrict or object to processing in certain circumstances, and to lodge a complaint with the Information Commissioner's Office at ico.org.uk.</p>
-
-              <p>If anything in this response is unclear, or if you would like to discuss any aspect of the materials, please reply to this email and we will respond promptly.</p>
-
-              <p>Yours sincerely,<br />
-              <em>[Name]</em> · Data Protection Officer<br />
-              <em>[Agency]</em></p>
             </div>
-          </div>
-        </div>
 
-        <div class="prose__step">
-          <div class="prose__step-num">Key decisions</div>
-          <div class="prose__step-body">
-            <h3>Where judgement, not procedure, did the work.</h3>
-            <ul>
-              <li><strong>Not extending to three months.</strong> The request was complex but the volume was manageable. The 30-day window was achievable, so the extension under Article 12(3) was not invoked. Extending is permitted but should be used because it is needed, not because it is available.</li>
-              <li><strong>Redacting third-party names but disclosing context.</strong> Wholesale redaction of every counterparty would have produced documents the requester could not understand. We redacted identifying details but preserved enough context for the requester to make sense of their own data.</li>
-              <li><strong>Treating the campaign analytics as in scope but low signal.</strong> The data was about the requester's professional activity; it was personal data, but the requester is unlikely to find it useful. Summarised rather than dumped, with full data available on request.</li>
-            </ul>
-          </div>
-        </div>
+            <div class="art-section">
+              <p class="art-section__label">Analysis</p>
+              <h2 class="art-section__title" id="decisions">Key decisions</h2>
+              <ul class="art-points">
+                <li><strong>Not extending to three months</strong> The request was complex but the volume was manageable. The 30-day window was achievable, so the extension under Article 12(3) was not invoked.</li>
+                <li><strong>Redacting third-party names but disclosing context</strong> Wholesale redaction of every counterparty would have produced documents the requester could not understand. We redacted identifying details but preserved enough context for the requester to make sense of their own data.</li>
+                <li><strong>Treating campaign analytics as in scope but low signal</strong> The data was about the requester's professional activity; it was personal data, but the requester is unlikely to find it useful. Summarised rather than dumped, with full data available on request.</li>
+              </ul>
+            </div>
 
-        <div class="prose__step">
-          <div class="prose__step-num">Reflection</div>
-          <div class="prose__step-body">
-            <h3>What this scenario taught me.</h3>
-            <p>The largest risk in a DSAR is not the legal one — it is the operational one. Most of the time spent on this case was on shared-inbox search, redaction review, and bundle assembly. The legal analysis was straightforward; the logistics were not.</p>
-            <p>The thing I will carry forward is that <em>a DSAR response is a piece of writing aimed at a person, not a deliverable aimed at a regulator.</em> The bundle index, the brief explanations of redactions, and the enclosure of the privacy notice all exist to make the response usable. A response that meets the legal threshold but leaves the requester confused is not a good response.</p>
-          </div>
-        </div>
+            <div class="art-section art-section--alt">
+              <p class="art-section__label">Deliverable</p>
+              <span class="art-section__badge">Clarissa's Work</span>
+              <h2 class="art-section__title" id="deliverable">Response letter</h2>
+              <p class="art-section__desc">Drafted subject access request response, sent day 22 of 30.</p>
 
+              <div class="output-block">
+                <p class="doc-meta">Subject access request response · Reference DSAR-2026-014 · Sent day 22 of 30</p>
+                <p>Dear <em>[Requester]</em>,</p>
+                <p>Thank you for your subject access request received on <em>[date]</em>. We are writing to confirm that we have completed our search and to provide the information you are entitled to under Article 15 of the UK GDPR.</p>
+                <h4>What we hold about you</h4>
+                <ul>
+                  <li><strong>CRM record:</strong> created during a prospecting cycle in 2023. Contains your name, business email, job title at the time, and notes from two meetings. Enclosed at <em>Appendix A</em>.</li>
+                  <li><strong>Email correspondence:</strong> 47 messages across two shared inboxes, between July 2023 and February 2025. A redacted bundle is enclosed at <em>Appendix B</em>.</li>
+                  <li><strong>Campaign analytics:</strong> engagement records relating to campaigns run for <em>[previous employer]</em> while you were employed there. Summarised at <em>Appendix C</em>.</li>
+                </ul>
+                <h4>What we have not provided, and why</h4>
+                <ul>
+                  <li>Personal data of other identifiable individuals has been redacted where their consent was not given and disclosure to you would not be reasonable in the circumstances.</li>
+                  <li>A small number of documents were marked privileged and have been withheld on that basis, with document references and reasons included.</li>
+                  <li>Internal business records that do not contain your personal data are out of scope and are not included.</li>
+                </ul>
+                <h4>Your rights</h4>
+                <p>You have the right to ask us to rectify or erase your personal data, to restrict or object to processing in certain circumstances, and to lodge a complaint with the Information Commissioner's Office at ico.org.uk.</p>
+                <p>Yours sincerely,<br /><em>[Name]</em> · Data Protection Officer<br /><em>[Agency]</em></p>
+              </div>
+            </div>
+
+            <div class="art-section">
+              <p class="art-section__label">Insight</p>
+              <span class="art-section__badge">Clarissa's Work</span>
+              <h2 class="art-section__title" id="insight">What this taught me</h2>
+              <p class="art-section__desc">The largest risk in a DSAR is not the legal one. It is the operational one. Most of the time spent on this case was on shared-inbox search, redaction review, and bundle assembly. The legal analysis was straightforward; the logistics were not.</p>
+              <p class="art-section__desc">The thing I will carry forward is that <em>a DSAR response is a piece of writing aimed at a person, not a deliverable aimed at a regulator.</em> The bundle index, the brief explanations of redactions, and the enclosure of the privacy notice all exist to make the response usable. A response that meets the legal threshold but leaves the requester confused is not a good response.</p>
+            </div>
+
+          </div>
+
+          <nav class="art-toc" aria-label="Sections in this case study">
+            <p class="art-toc__label">Jump to</p>
+            <ol class="art-toc__list">
+              <li><a href="#brief">The brief</a></li>
+              <li><a href="#process">Handling process</a></li>
+              <li><a href="#decisions">Key decisions</a></li>
+              <li><a href="#deliverable">Response letter</a></li>
+              <li><a href="#insight">What this taught me</a></li>
+            </ol>
+          </nav>
+
+        </div>
       </div>
     </section>
+
+    <a class="art-next" href="artefacts.html">
+      <div>
+        <p class="art-next__label">Back to</p>
+        <p class="art-next__name">All Artefacts</p>
+      </div>
+      <span class="art-next__arrow" aria-hidden="true">→</span>
+    </a>
+
   </main>
 
   <footer class="foot" role="contentinfo">
