@@ -1083,10 +1083,77 @@
     });
   }
 
+  function initArtToc() {
+    var toc = document.querySelector(".art-toc");
+    if (!toc) return;
+
+    var links = Array.prototype.slice.call(
+      toc.querySelectorAll('.art-toc__list a[href^="#"]')
+    );
+    if (!links.length) return;
+
+    var items = links
+      .map(function (link) {
+        var id = (link.getAttribute("href") || "").replace(/^#/, "");
+        if (!id) return null;
+        var section = document.getElementById(id);
+        if (!section) return null;
+        return { id: id, link: link, section: section };
+      })
+      .filter(Boolean);
+
+    if (!items.length) return;
+
+    function setActive(id) {
+      items.forEach(function (item) {
+        var active = item.id === id;
+        item.link.classList.toggle("is-active", active);
+        if (active) item.link.setAttribute("aria-current", "location");
+        else item.link.removeAttribute("aria-current");
+      });
+    }
+
+    function pickActiveSection() {
+      var marker = window.scrollY + (window.innerHeight * 0.32);
+      var current = items[0].id;
+
+      items.forEach(function (item) {
+        if (item.section.offsetTop <= marker) current = item.id;
+      });
+
+      if (window.innerHeight + window.scrollY >= document.body.scrollHeight - 2) {
+        current = items[items.length - 1].id;
+      }
+
+      return current;
+    }
+
+    var ticking = false;
+    function onScroll() {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(function () {
+        setActive(pickActiveSection());
+        ticking = false;
+      });
+    }
+
+    window.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+
+    var hashId = (window.location.hash || "").replace(/^#/, "");
+    if (hashId && items.some(function (item) { return item.id === hashId; })) {
+      setActive(hashId);
+    } else {
+      setActive(pickActiveSection());
+    }
+  }
+
   document.addEventListener("DOMContentLoaded", function () {
     initNav();
     initActiveNav();
     initHomeReveal();
     initReading();
+    initArtToc();
   });
 })();
