@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Time to Change the CVSS? — Clarissa Ankrah</title>
+  <meta name="description" content="MSc essay critiquing CVSS vulnerability scoring and arguing for risk-based alternatives like DREAD." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html">Clarissa Ankrah</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+        <span class="nav__toggle-bars"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html,artefact-04.html" href="artefacts.html">Artefacts</a></li>
+          <li><a class="nav__link" data-nav="writing.html,writing-01.html,writing-02.html,writing-03.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
+          <li><a class="nav__link" data-nav="journal.html" href="journal.html">Journal</a></li>
+          <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
+          <li><a class="nav__link" data-nav="contact.html" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <header class="article-banner" style="background-image: url('uploads/msc/security-risk.jpg');">
+      <div class="wrap article-banner__inner">
+        <a class="back-link back-link--on-banner" href="writing.html"><span aria-hidden="true">←</span> Writing</a>
+        <p class="eyebrow article-banner__eyebrow">MSc · Security &amp; Risk Management</p>
+        <h1 class="article-banner__title">Time to Change the CVSS?</h1>
+        <p class="article-banner__lede">A critical response to Spring et al. (2021) on the limits of CVSS as a vulnerability scoring system — and why organisations need risk context, not severity alone.</p>
+        <div class="article-banner__meta">
+          <span>University of Essex</span>
+          <span>Module artefact · 2022</span>
+        </div>
+      </div>
+    </header>
+
+    <section class="prose">
+      <div class="wrap">
+        <div class="prose__intro">
+          <p class="msc-context"><strong>Context:</strong> Written during my MSc Cyber Security. CVSS prioritisation sits upstream of many compliance and security programmes — understanding its limits is useful when translating technical findings into organisational risk decisions.</p>
+
+          <p>Spring et al. (2021) describe the Common Vulnerability Scoring System (CVSS) as "a way to capture the principal characteristics of a vulnerability to help organizations properly assess and prioritize vulnerability management processes" (p. 74). Their paper, "Time to Change the CVSS?", discusses problem areas surrounding the CVSS scoring system: lack of justification, failure to account for consequences, and scoring severities rather than risks.</p>
+
+          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Lack of justification</h3>
+          <p>Spring et al. state that CVSS produces an unreliable output. My interpretation is that it is somewhat reductionist: to get the base score, eight questions must be answered where qualitative information is converted to quantitative. Not having exhaustive details leaves room for speculation, which can lead to unclear response plans. Capagna (2020) adds that this creates "efforts wasted on remediating vulnerabilities that will never pose a risk to the organization because they will never be exploited."</p>
+
+          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Scoring severity, not risks</h3>
+          <p>The authors argue CVSS is flawed because it does not sufficiently address the relationship between risk and vulnerability, or how quickly a risk should be responded to. I agree: mistaken prioritisation can greatly impact an organisation. Jacobs et al. (2020) express the importance of effectively evaluating risks and vulnerabilities posed to "a single firm, or to sectors of critical infrastructure" (p. 11). Maury (2022) suggests that rectifying the security vulnerability is the first step, but "bug bounty and regular pen tests can increase the effectiveness of vulnerability management."</p>
+          <p>Assessing risks involves a more intricate analysis: likelihood of attack, potential damage, value of the asset being protected, and cost of mitigation — all of which organisations should consider when deciding how to respond.</p>
+
+          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Alternatives to CVSS</h3>
+          <p>Despite the flaws addressed in the paper, one alternative is DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability), which scores severity based on five factors: potential damage, likelihood of exploitation, ease of discovery, number of users affected, and ability to reproduce the vulnerability.</p>
+          <p>Singh &amp; Sharma (2018) suggest a hybrid approach combining CVSS with the Vulnerability Rating and Scoring System (VRSS), providing "both qualitative and quantitative score for prioritization" (p. 37). However, they conclude that both CVSS and VRSS do not account for "time-based metrics" (p. 42), which matter for tracking trends and severity over time in real operational environments.</p>
+
+          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 40px 0 16px;">References</h3>
+          <p>Capagna, R. (2020). <em>5 Reasons to Stop Using CVSS Scores to Measure Risk.</em> Balbix. <a href="https://www.balbix.com/blog/5-reasons-to-stop-using-cvss-scores-to-measure-risk/" target="_blank" rel="noopener">balbix.com</a></p>
+          <p>Jacobs, J. et al. (2020). Improving vulnerability remediation through better exploit prediction. <em>Journal of Cybersecurity</em>, 6(1). <a href="https://doi.org/10.1093/cybsec/tyaa015" target="_blank" rel="noopener">doi.org/10.1093/cybsec/tyaa015</a></p>
+          <p>Maury, J. (2022). <em>CVSS Vulnerability Scores Can Be Misleading.</em> eSecurityPlanet. <a href="https://www.esecurityplanet.com/threats/cvss-scores-can-be-misleading/" target="_blank" rel="noopener">esecurityplanet.com</a></p>
+          <p>Sharma, R. and Singh, R.K. (2018). An Improved Scoring System for Software Vulnerability Prioritization. <em>Quality, IT and Business Operations.</em> Springer, pp.33–43.</p>
+          <p>Spring, J. et al. (2021). Time to Change the CVSS? <em>IEEE Security &amp; Privacy</em>, 19(2), pp.74–78. <a href="https://doi.org/10.1109/msec.2020.3044475" target="_blank" rel="noopener">doi.org/10.1109/msec.2020.3044475</a></p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap">
+      <p class="foot__line">
+        <span>© Clarissa Ankrah, 2026</span>
+        <span>clnks.github.io/clarissaankrah</span>
+        <span>Built by Clarissa. Updated regularly.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
+  <script src="scripts.js"></script>
+  <script src="site-edit.js"></script>
+</body>
+</html>

@@ -4,10 +4,10 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Writing — Clarissa Ankrah</title>
-  <meta name="description" content="My thoughts on data protection, AI governance and regulatory compliance." />
+  <meta name="description" content="Essays and academic writing on data protection, cyber security, AI governance and regulatory compliance." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
@@ -20,8 +20,8 @@
       </button>
       <nav aria-label="Primary">
         <ul class="nav__list">
-          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html,artefact-04.html" href="artefacts.html">Work</a></li>
-          <li><a class="nav__link" data-nav="writing.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html,artefact-04.html" href="artefacts.html">Artefacts</a></li>
+          <li><a class="nav__link" data-nav="writing.html,writing-01.html,writing-02.html,writing-03.html" href="writing.html">Writing</a></li>
           <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
           <li><a class="nav__link" data-nav="journal.html" href="journal.html">Journal</a></li>
           <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
@@ -32,60 +32,85 @@
   </header>
 
   <main>
-    <section class="page-head">
-      <div class="wrap">
+    <section class="page-hero">
+      <div class="page-hero__bg" style="background-image: url('uploads/msc/launching-cyber.jpg');" role="img" aria-label="Abstract cyber security imagery"></div>
+      <div class="wrap page-hero__content">
         <p class="eyebrow page-head__eyebrow" data-edit="head.eyebrow">Notes &amp; Observations</p>
-        <h1 class="h-page page-head__title" data-edit="head.title">Writing</h1>
-        <p class="page-head__sub" data-edit="head.sub">My thoughts on data protection, AI governance and regulatory compliance.</p>
-        <p class="page-head__note" data-edit="head.note">Longer pieces live on Privacy in Practice. This is where I publish shorter thoughts and observations.</p>
+        <h1 class="page-hero__title" data-edit="head.title">Writing</h1>
+        <p class="page-hero__sub" data-edit="head.sub">Essays on data protection, AI governance, and the security foundations underneath compliance work.</p>
+        <p class="page-hero__note" data-edit="head.note">Longer study material lives on <a href="https://clnks.github.io/privacyinpractice/" target="_blank" rel="noopener">Privacy in Practice</a>. This is where I publish shorter pieces and selected MSc work.</p>
       </div>
     </section>
 
-    <section class="section section--first">
+    <section class="content-section section--first">
       <div class="wrap">
-        <div class="list">
+        <header class="content-section__head">
+          <h2 class="content-section__title" data-edit="section.recent.title">Recent</h2>
+          <p class="content-section__sub" data-edit="section.recent.sub">Current thinking on privacy, surveillance, and regulation.</p>
+        </header>
 
-          <article class="list__item" aria-label="Article">
-            <span class="list__num">01</span>
-            <span class="list__body">
-              <span class="list__date" data-edit="piece.1.date">June 2026</span>
-              <h2 class="list__title" data-edit="piece.1.title">The Most Photographed People in the World Just Sold You a Camera</h2>
-              <p class="list__desc" data-edit="piece.1.desc">Meta's Kylie Jenner glasses are a masterclass in using celebrity to normalise ambient surveillance — and a case study in how Silicon Valley finally figured out who really controls consumer spending.</p>
-              <span class="list__meta">
-                <span class="tag" data-edit="piece.1.tag1">12 min read</span>
-                <span class="tag" data-edit="piece.1.tag2">AI Governance</span>
-                <span class="tag" data-edit="piece.1.tag3">Ambient Surveillance</span>
-              </span>
-            </span>
-            <a class="list__link" href="writing-01.html">Read <span aria-hidden="true">→</span></a>
-          </article>
+        <div class="post-grid">
+          <a class="post-card" href="writing-01.html">
+            <div class="post-card__media" style="background-image: url('images/kylie-meta.avif');" role="img" aria-label="Meta Starfire Kylie Edition smart glasses campaign">
+              <span class="post-card__media-label">Essay</span>
+            </div>
+            <div class="post-card__body">
+              <span class="post-card__date" data-edit="piece.1.date">June 2026</span>
+              <h3 class="post-card__title" data-edit="piece.1.title">The Most Photographed People in the World Just Sold You a Camera</h3>
+              <p class="post-card__desc" data-edit="piece.1.desc">Meta's Kylie Jenner glasses are a masterclass in using celebrity to normalise ambient surveillance — and a case study in how Silicon Valley finally figured out who really controls consumer spending.</p>
+              <div class="post-card__tags">
+                <span class="post-card__tag" data-edit="piece.1.tag1">12 min read</span>
+                <span class="post-card__tag" data-edit="piece.1.tag2">AI Governance</span>
+                <span class="post-card__tag" data-edit="piece.1.tag3">Surveillance</span>
+              </div>
+              <span class="post-card__cta">Read essay <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-          <article class="list__item" aria-label="Article placeholder">
-            <span class="list__num">02</span>
-            <span class="list__body">
-              <span class="list__date" data-edit="piece.2.date">Coming soon</span>
-              <h2 class="list__title" data-edit="piece.2.title">In preparation</h2>
-              <p class="list__desc" data-edit="piece.2.desc">A short note in this slot once the first piece is published.</p>
-              <span class="list__meta">
-                <span class="tag" data-edit="piece.2.tag1">Draft</span>
-              </span>
-            </span>
-            <span class="list__link soft">Not yet</span>
-          </article>
+    <section class="content-section">
+      <div class="wrap">
+        <header class="content-section__head">
+          <h2 class="content-section__title" data-edit="section.msc.title">From my MSc</h2>
+          <p class="content-section__sub" data-edit="section.msc.sub">Selected module writing from my MSc Cyber Security at the University of Essex — kept here as background to my move into data protection.</p>
+        </header>
 
-          <article class="list__item" aria-label="Article placeholder">
-            <span class="list__num">03</span>
-            <span class="list__body">
-              <span class="list__date" data-edit="piece.3.date">Coming soon</span>
-              <h2 class="list__title" data-edit="piece.3.title">In preparation</h2>
-              <p class="list__desc" data-edit="piece.3.desc">A short note in this slot once the second piece is published.</p>
-              <span class="list__meta">
-                <span class="tag" data-edit="piece.3.tag1">Draft</span>
-              </span>
-            </span>
-            <span class="list__link soft">Not yet</span>
-          </article>
+        <div class="post-grid">
+          <a class="post-card" href="writing-02.html">
+            <div class="post-card__media" style="background-image: url('uploads/msc/launching-cyber.jpg');" role="img" aria-label="Launching into cyber security module imagery">
+              <span class="post-card__media-label">MSc · 2022</span>
+            </div>
+            <div class="post-card__body">
+              <span class="post-card__date">Launching into Cyber Security</span>
+              <h3 class="post-card__title">Why Cyber Security Is a Global Issue: The TalkTalk Breach</h3>
+              <p class="post-card__desc">How a SQL injection exposed 150,000 accounts, triggered ICO enforcement, and showed why data protection and security investment cannot be separated.</p>
+              <div class="post-card__tags">
+                <span class="post-card__tag">Data breach</span>
+                <span class="post-card__tag">ICO</span>
+                <span class="post-card__tag">Outsourcing risk</span>
+              </div>
+              <span class="post-card__cta">Read essay <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
 
+          <a class="post-card" href="writing-03.html">
+            <div class="post-card__media" style="background-image: url('uploads/msc/security-risk.jpg');" role="img" aria-label="Security and risk management module imagery">
+              <span class="post-card__media-label">MSc · 2022</span>
+            </div>
+            <div class="post-card__body">
+              <span class="post-card__date">Security &amp; Risk Management</span>
+              <h3 class="post-card__title">Time to Change the CVSS?</h3>
+              <p class="post-card__desc">A critical reading of Spring et al. on CVSS limitations — scoring severity instead of organisational risk, and what DREAD offers as an alternative.</p>
+              <div class="post-card__tags">
+                <span class="post-card__tag">Risk</span>
+                <span class="post-card__tag">Vulnerability management</span>
+                <span class="post-card__tag">CVSS</span>
+              </div>
+              <span class="post-card__cta">Read essay <span aria-hidden="true">→</span></span>
+            </div>
+          </a>
         </div>
       </div>
     </section>
