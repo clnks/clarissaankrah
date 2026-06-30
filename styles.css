@@ -1425,27 +1425,23 @@ a.post-card:hover {
 }
 
 .risk-table td:first-child {
-  white-space: nowrap;
+  white-space: normal;
   font-weight: 500;
 }
 
-@media (max-width: 640px) {
-  .risk-table, .risk-table thead, .risk-table tbody,
-  .risk-table tr, .risk-table th, .risk-table td {
-    display: block;
-  }
-  .risk-table th { display: none; }
-  .risk-table tr {
-    border-bottom: 1px solid var(--border);
-    padding: 12px 0;
-  }
-  .risk-table td { border: 0; padding: 4px 0; }
-  .risk-table td:first-child {
-    font-size: 11px;
-    letter-spacing: 0.1em;
-    text-transform: uppercase;
-    color: var(--text-soft);
-  }
+.output-block--table {
+  padding: 0;
+  overflow-x: auto;
+}
+
+.output-block--table .risk-table {
+  min-width: 760px;
+  margin: 0;
+}
+
+.output-block--table .risk-table th,
+.output-block--table .risk-table td {
+  padding: 14px 16px;
 }
 
 .back-link {
