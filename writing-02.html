@@ -47,24 +47,45 @@
 
     <section class="prose">
       <div class="wrap">
+        <div class="article-layout">
+          <div class="article-main">
         <div class="prose__intro">
-          <p class="msc-context"><strong>Context:</strong> Written during my MSc Cyber Security at the University of Essex. I keep it here because the TalkTalk case bridges technical failure, ICO enforcement, and outsourcing risk — themes I now work with in a data protection context.</p>
+          <p class="msc-context" id="context"><strong>Context:</strong> Written during my MSc Cyber Security at the University of Essex. I keep it here because the TalkTalk case bridges technical failure, ICO enforcement, and outsourcing risk — themes I now work with in a data protection context.</p>
 
+          <div id="breach">
           <p>The internet has become a key resource in society, which has allowed globalisation to progress at an exponential rate. Cremer, Sheehan, Fortmann et al. (2022) estimated that in 2020, cybercrime cost the global economy nearly $1 trillion USD (around £872 billion), an increase of more than 50% from 2018.</p>
 
           <p>A company affected by a cyber attack was TalkTalk in 2015. TalkTalk Telecom Group PLC provides broadband, TV and mobile services to over 95% of the UK population, from businesses to consumers. The telecoms giant was at the centre of a data breach, exposing sensitive customer information via a SQL injection. Over 150,000 accounts were compromised, including bank details, account numbers and sort codes. In 2009, TalkTalk took over the Italian telecommunications company Tiscali. Their system used an old form of code that communicated with the database, which was the main cause of how the breach took place (Wall &amp; Porcedda, 2019).</p>
+          </div>
 
+          <div id="aftermath">
           <p>As a result, TalkTalk was penalised £400,000 by the Information Commissioner's Office (ICO) for improper security measures, as well as a further £100,000 in 2017 when data was exposed by three employees at Wipro, who TalkTalk was outsourcing work to (BBC News, 2016). This event was a detriment to the company's reputation, resulting in a parliamentary investigation into cyber security as well as the CEO at the time resigning (Pownall, 2020).</p>
+          </div>
 
+          <div id="takeaway">
           <p>TalkTalk's data breach shows why cyber security and data protection practices are important. Cyber culture is evolving faster than the technologies that protect it, so private data, intellectual property, and resources are at risk of being compromised or damaged by cyber attacks.</p>
+          </div>
 
-          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 40px 0 16px;">References</h3>
+          <h3 id="references" style="font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 40px 0 16px;">References</h3>
           <p>BBC News (2016). <em>TalkTalk call centre workers arrested in India.</em> Available at: <a href="https://www.bbc.co.uk/news/technology-35425275" target="_blank" rel="noopener">bbc.co.uk/news/technology-35425275</a></p>
           <p>Comizio, V.G., Dayanim, B. and Bain, L. (2016). Cybersecurity as a global concern in need of global solutions. <em>Journal of Investment Compliance</em>, 17(1), pp.101–111. <a href="https://doi.org/10.1108/joic-01-2016-0003" target="_blank" rel="noopener">doi.org/10.1108/joic-01-2016-0003</a></p>
           <p>Cremer, F. et al. (2022). Cyber risk and cybersecurity: a systematic review of data availability. <em>The Geneva Papers on Risk and Insurance</em>, 47(3), pp.698–736. <a href="https://doi.org/10.1057/s41288-022-00266-6" target="_blank" rel="noopener">doi.org/10.1057/s41288-022-00266-6</a></p>
           <p>Porcedda, M.G. and Wall, D.S. (2019). <em>Cascade and Chain Effects in Big Data Cybercrime: Lessons from the TalkTalk hack.</em> EuroS&amp;PW. <a href="https://eprints.whiterose.ac.uk/148986/" target="_blank" rel="noopener">eprints.whiterose.ac.uk/148986</a></p>
           <p>Pownall, C. (2020). The Context and Impact of TalkTalk's October 2015 Data Breach.</p>
         </div>
+          </div><!-- /article-main -->
+
+          <nav class="article-toc" aria-label="Article sections">
+            <p class="toc-label">Jump to</p>
+            <ol class="toc-list">
+              <li><a href="#context">Context</a></li>
+              <li><a href="#breach">The breach</a></li>
+              <li><a href="#aftermath">Regulatory fallout</a></li>
+              <li><a href="#takeaway">Why it matters</a></li>
+              <li><a href="#references">References</a></li>
+            </ol>
+          </nav>
+        </div><!-- /article-layout -->
       </div>
     </section>
   </main>

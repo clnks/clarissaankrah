@@ -47,29 +47,44 @@
 
     <section class="prose">
       <div class="wrap">
+        <div class="article-layout">
+          <div class="article-main">
         <div class="prose__intro">
-          <p class="msc-context"><strong>Context:</strong> Written during my MSc Cyber Security. CVSS prioritisation sits upstream of many compliance and security programmes — understanding its limits is useful when translating technical findings into organisational risk decisions.</p>
+          <p class="msc-context" id="context"><strong>Context:</strong> Written during my MSc Cyber Security. CVSS prioritisation sits upstream of many compliance and security programmes — understanding its limits is useful when translating technical findings into organisational risk decisions.</p>
 
           <p>Spring et al. (2021) describe the Common Vulnerability Scoring System (CVSS) as "a way to capture the principal characteristics of a vulnerability to help organizations properly assess and prioritize vulnerability management processes" (p. 74). Their paper, "Time to Change the CVSS?", discusses problem areas surrounding the CVSS scoring system: lack of justification, failure to account for consequences, and scoring severities rather than risks.</p>
 
-          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Lack of justification</h3>
+          <h3 id="justification" style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Lack of justification</h3>
           <p>Spring et al. state that CVSS produces an unreliable output. My interpretation is that it is somewhat reductionist: to get the base score, eight questions must be answered where qualitative information is converted to quantitative. Not having exhaustive details leaves room for speculation, which can lead to unclear response plans. Capagna (2020) adds that this creates "efforts wasted on remediating vulnerabilities that will never pose a risk to the organization because they will never be exploited."</p>
 
-          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Scoring severity, not risks</h3>
+          <h3 id="severity" style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Scoring severity, not risks</h3>
           <p>The authors argue CVSS is flawed because it does not sufficiently address the relationship between risk and vulnerability, or how quickly a risk should be responded to. I agree: mistaken prioritisation can greatly impact an organisation. Jacobs et al. (2020) express the importance of effectively evaluating risks and vulnerabilities posed to "a single firm, or to sectors of critical infrastructure" (p. 11). Maury (2022) suggests that rectifying the security vulnerability is the first step, but "bug bounty and regular pen tests can increase the effectiveness of vulnerability management."</p>
           <p>Assessing risks involves a more intricate analysis: likelihood of attack, potential damage, value of the asset being protected, and cost of mitigation — all of which organisations should consider when deciding how to respond.</p>
 
-          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Alternatives to CVSS</h3>
+          <h3 id="alternatives" style="font-family: var(--sans); font-weight: 500; font-size: 18px; letter-spacing: -0.02em; margin: 32px 0 12px;">Alternatives to CVSS</h3>
           <p>Despite the flaws addressed in the paper, one alternative is DREAD (Damage, Reproducibility, Exploitability, Affected Users, Discoverability), which scores severity based on five factors: potential damage, likelihood of exploitation, ease of discovery, number of users affected, and ability to reproduce the vulnerability.</p>
           <p>Singh &amp; Sharma (2018) suggest a hybrid approach combining CVSS with the Vulnerability Rating and Scoring System (VRSS), providing "both qualitative and quantitative score for prioritization" (p. 37). However, they conclude that both CVSS and VRSS do not account for "time-based metrics" (p. 42), which matter for tracking trends and severity over time in real operational environments.</p>
 
-          <h3 style="font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 40px 0 16px;">References</h3>
+          <h3 id="references" style="font-family: var(--sans); font-weight: 500; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-soft); margin: 40px 0 16px;">References</h3>
           <p>Capagna, R. (2020). <em>5 Reasons to Stop Using CVSS Scores to Measure Risk.</em> Balbix. <a href="https://www.balbix.com/blog/5-reasons-to-stop-using-cvss-scores-to-measure-risk/" target="_blank" rel="noopener">balbix.com</a></p>
           <p>Jacobs, J. et al. (2020). Improving vulnerability remediation through better exploit prediction. <em>Journal of Cybersecurity</em>, 6(1). <a href="https://doi.org/10.1093/cybsec/tyaa015" target="_blank" rel="noopener">doi.org/10.1093/cybsec/tyaa015</a></p>
           <p>Maury, J. (2022). <em>CVSS Vulnerability Scores Can Be Misleading.</em> eSecurityPlanet. <a href="https://www.esecurityplanet.com/threats/cvss-scores-can-be-misleading/" target="_blank" rel="noopener">esecurityplanet.com</a></p>
           <p>Sharma, R. and Singh, R.K. (2018). An Improved Scoring System for Software Vulnerability Prioritization. <em>Quality, IT and Business Operations.</em> Springer, pp.33–43.</p>
           <p>Spring, J. et al. (2021). Time to Change the CVSS? <em>IEEE Security &amp; Privacy</em>, 19(2), pp.74–78. <a href="https://doi.org/10.1109/msec.2020.3044475" target="_blank" rel="noopener">doi.org/10.1109/msec.2020.3044475</a></p>
         </div>
+          </div><!-- /article-main -->
+
+          <nav class="article-toc" aria-label="Article sections">
+            <p class="toc-label">Jump to</p>
+            <ol class="toc-list">
+              <li><a href="#context">Context</a></li>
+              <li><a href="#justification">Lack of justification</a></li>
+              <li><a href="#severity">Scoring severity, not risks</a></li>
+              <li><a href="#alternatives">Alternatives to CVSS</a></li>
+              <li><a href="#references">References</a></li>
+            </ol>
+          </nav>
+        </div><!-- /article-layout -->
       </div>
     </section>
   </main>

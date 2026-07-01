@@ -136,62 +136,6 @@
     /* Essay layout: single column, no step numbers */
     .prose .prose__step { grid-template-columns: 1fr; gap: 0; }
     .prose .prose__step-num { display: none; }
-    /* Two-column layout: article + sticky TOC */
-    .article-layout {
-      display: grid;
-      grid-template-columns: 1fr 200px;
-      gap: 80px;
-      align-items: start;
-    }
-    .article-toc {
-      position: sticky;
-      top: 88px;
-    }
-    .toc-label {
-      font-size: 10px;
-      font-weight: 500;
-      letter-spacing: 0.18em;
-      text-transform: uppercase;
-      color: var(--text-soft);
-      margin: 0 0 14px;
-    }
-    .toc-list {
-      list-style: none;
-      margin: 0;
-      padding: 0;
-    }
-    .toc-list li + li {
-      margin-top: 2px;
-    }
-    .toc-list a {
-      display: block;
-      font-size: 13px;
-      line-height: 1.45;
-      color: var(--text-soft);
-      text-decoration: none;
-      padding: 6px 0 6px 12px;
-      border-left: 1px solid var(--border);
-      transition: color 160ms ease, border-color 160ms ease;
-    }
-    .toc-list a:hover {
-      color: var(--text);
-      border-left-color: var(--lavender);
-    }
-    @media (max-width: 860px) {
-      .article-layout {
-        grid-template-columns: 1fr;
-        gap: 0;
-      }
-      .article-toc {
-        position: static;
-        order: -1;
-        padding: 24px 0 32px;
-        border-bottom: 1px solid var(--border);
-        margin-bottom: 8px;
-      }
-      .toc-list { display: flex; flex-wrap: wrap; gap: 4px 0; }
-      .toc-list li { flex: 0 0 100%; }
-    }
   </style>
 </head>
 <body>
@@ -348,7 +292,7 @@
           </div><!-- /article-main -->
 
           <nav class="article-toc" aria-label="Article sections">
-            <p class="toc-label">In this essay</p>
+            <p class="toc-label">Jump to</p>
             <ol class="toc-list">
               <li><a href="#silicon-valley">Silicon Valley and the till</a></li>
               <li><a href="#we-forgot">We have been here before</a></li>

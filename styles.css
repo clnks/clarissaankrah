@@ -1690,6 +1690,88 @@ a.post-card:hover {
   padding-left: 11px;
 }
 
+/* Writing essays — sidebar jump links + scroll progress */
+.article-layout {
+  display: grid;
+  grid-template-columns: 1fr 200px;
+  gap: 80px;
+  align-items: start;
+}
+
+.article-toc {
+  position: sticky;
+  top: 88px;
+}
+
+.toc-label {
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--text-soft);
+  margin: 0 0 14px;
+}
+
+.toc-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.toc-list li + li {
+  margin-top: 2px;
+}
+
+.toc-list a {
+  display: block;
+  font-size: 13px;
+  line-height: 1.45;
+  color: var(--text-soft);
+  text-decoration: none;
+  padding: 6px 0 6px 12px;
+  border-left: 1px solid var(--border);
+  border-bottom: none;
+  transition: color 160ms ease, border-color 160ms ease, background 160ms ease;
+}
+
+.toc-list a:hover {
+  color: var(--text);
+  border-left-color: var(--lavender);
+  border-bottom: none;
+}
+
+.toc-list a.is-active {
+  color: var(--text);
+  border-left: 2px solid var(--lavender);
+  background: rgba(196, 181, 244, 0.16);
+  padding-left: 11px;
+}
+
+@media (max-width: 860px) {
+  .article-layout {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .article-toc {
+    position: static;
+    order: -1;
+    padding: 24px 0 32px;
+    border-bottom: 1px solid var(--border);
+    margin-bottom: 8px;
+  }
+
+  .toc-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px 0;
+  }
+
+  .toc-list li {
+    flex: 0 0 100%;
+  }
+}
+
 .art-deliverable {
   display: grid;
   grid-template-columns: minmax(180px, 280px) 1fr;

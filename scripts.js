@@ -1083,12 +1083,9 @@
     });
   }
 
-  function initArtToc() {
-    var toc = document.querySelector(".art-toc");
-    if (!toc) return;
-
+  function initScrollTocForNav(toc, linkSelector) {
     var links = Array.prototype.slice.call(
-      toc.querySelectorAll('.art-toc__list a[href^="#"]')
+      toc.querySelectorAll(linkSelector)
     );
     if (!links.length) return;
 
@@ -1147,6 +1144,15 @@
     } else {
       setActive(pickActiveSection());
     }
+  }
+
+  function initArtToc() {
+    document.querySelectorAll(".art-toc").forEach(function (toc) {
+      initScrollTocForNav(toc, '.art-toc__list a[href^="#"]');
+    });
+    document.querySelectorAll(".article-toc").forEach(function (toc) {
+      initScrollTocForNav(toc, '.toc-list a[href^="#"]');
+    });
   }
 
   document.addEventListener("DOMContentLoaded", function () {
