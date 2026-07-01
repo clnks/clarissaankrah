@@ -1,0 +1,334 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Usernames Won't Save You: What WhatsApp's Latest "Privacy Feature" Actually Fixes — Clarissa Ankrah</title>
+  <meta name="description" content="WhatsApp's new usernames improve reachability, not content privacy or metadata protection. A three-layer test for assessing what the feature actually fixes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css" />
+  <style>
+    .pull-quote {
+      border-top: 1px solid var(--lavender);
+      border-bottom: 1px solid var(--lavender);
+      margin: 36px 0;
+      padding: 24px 0;
+    }
+    .pull-quote p {
+      font-family: var(--serif);
+      font-size: clamp(20px, 2.4vw, 26px);
+      font-weight: 300;
+      line-height: 1.45;
+      color: var(--text);
+      margin: 0;
+      letter-spacing: -0.01em;
+    }
+    .callout {
+      background: var(--lavender-tint);
+      border-top: 2px solid var(--lavender);
+      padding: 22px 26px;
+      margin: 24px 0;
+      font-size: 15px;
+      line-height: 1.65;
+    }
+    .callout__label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      display: block;
+      margin-bottom: 10px;
+    }
+    .callout ol {
+      margin: 0;
+      padding-left: 1.3em;
+    }
+    .callout li {
+      margin-bottom: 8px;
+      line-height: 1.6;
+    }
+    .callout li:last-child { margin-bottom: 0; }
+    .article-lede {
+      font-size: clamp(16px, 1.8vw, 18px);
+      line-height: 1.65;
+      color: var(--text-muted);
+      max-width: 58ch;
+      margin: 0 0 28px;
+      font-weight: 300;
+    }
+    .article-meta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px 18px;
+      font-size: 12px;
+      color: var(--text-soft);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      margin-top: 28px;
+      padding-top: 22px;
+      border-top: 1px solid var(--border);
+    }
+    .prose__intro {
+      padding: clamp(36px, 5vw, 56px) 0 0;
+    }
+    .prose__intro p {
+      font-size: 17px;
+      line-height: 1.75;
+      max-width: var(--measure);
+      margin: 0 0 18px;
+      color: var(--text);
+    }
+    .prose__intro p:last-child { margin-bottom: 0; }
+    .article-img-full {
+      display: block;
+      width: 100%;
+      height: auto;
+      margin: 32px 0 10px;
+    }
+    .article-img-caption {
+      font-size: 12px;
+      color: var(--text-soft);
+      letter-spacing: 0.04em;
+      margin-top: -20px;
+      margin-bottom: 28px;
+      max-width: var(--measure);
+    }
+    .back-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 13px;
+      color: var(--text-soft);
+      text-decoration: none;
+      letter-spacing: 0.04em;
+      margin-bottom: 32px;
+      transition: color 160ms ease;
+    }
+    .back-link:hover { color: var(--text); }
+    .prose .prose__step { grid-template-columns: 1fr; gap: 0; }
+    .prose .prose__step-num { display: none; }
+    .article-layout {
+      display: grid;
+      grid-template-columns: 1fr 200px;
+      gap: 80px;
+      align-items: start;
+    }
+    .article-toc {
+      position: sticky;
+      top: 88px;
+    }
+    .toc-label {
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--text-soft);
+      margin: 0 0 14px;
+    }
+    .toc-list {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+    }
+    .toc-list li + li {
+      margin-top: 2px;
+    }
+    .toc-list a {
+      display: block;
+      font-size: 13px;
+      line-height: 1.45;
+      color: var(--text-soft);
+      text-decoration: none;
+      padding: 6px 0 6px 12px;
+      border-left: 1px solid var(--border);
+      transition: color 160ms ease, border-color 160ms ease;
+    }
+    .toc-list a:hover {
+      color: var(--text);
+      border-left-color: var(--lavender);
+    }
+    @media (max-width: 860px) {
+      .article-layout {
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+      .article-toc {
+        position: static;
+        order: -1;
+        padding: 24px 0 32px;
+        border-bottom: 1px solid var(--border);
+        margin-bottom: 8px;
+      }
+      .toc-list { display: flex; flex-wrap: wrap; gap: 4px 0; }
+      .toc-list li { flex: 0 0 100%; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="nav" role="banner">
+    <div class="wrap nav__inner">
+      <a class="nav__brand" href="index.html">Clarissa Ankrah</a>
+      <button class="nav__toggle" type="button" aria-expanded="false" aria-label="Menu">
+        <span class="nav__toggle-bars"></span>
+      </button>
+      <nav aria-label="Primary">
+        <ul class="nav__list">
+          <li><a class="nav__link" data-nav="artefacts.html,artefact-01.html,artefact-02.html,artefact-03.html,artefact-04.html" href="artefacts.html">Artefacts</a></li>
+          <li><a class="nav__link" data-nav="writing.html,writing-01.html,writing-02.html,writing-03.html,writing-04.html" href="writing.html">Writing</a></li>
+          <li><a class="nav__link" data-nav="reading.html" href="reading.html">Reading</a></li>
+          <li><a class="nav__link" data-nav="journal.html" href="journal.html">Journal</a></li>
+          <li><a class="nav__link" href="https://hello.cv/clarissanku" target="_blank" rel="noopener">CV</a></li>
+          <li><a class="nav__link" data-nav="contact.html" href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="article-head">
+      <div class="wrap">
+        <a class="back-link" href="writing.html"><span aria-hidden="true">←</span> Writing</a>
+        <p class="eyebrow">Essay · Privacy</p>
+        <h1 class="article-head__title">Usernames Won't Save You: What WhatsApp's Latest "Privacy Feature" Actually Fixes</h1>
+        <p class="article-lede">WhatsApp's new usernames close a real reachability gap, but they do not change what the platform can read, collect, or observe about your activity.</p>
+        <div class="article-meta-row">
+          <span>June 2026</span>
+          <span>8 min read</span>
+          <span>WhatsApp · Reachability · Metadata · Data Protection</span>
+        </div>
+      </div>
+    </div>
+
+    <section class="prose">
+      <div class="wrap">
+        <div class="article-layout">
+          <div class="article-main">
+
+        <div class="prose__intro">
+          <p>On 29 June 2026, WhatsApp opened reservations for a feature its 3 billion users have been asking for since Telegram made it look easy… usernames. Once fully rolled out later this year, you'll be able to give someone a handle instead of your phone number, and, in theory, never hand your digits to a stranger again.</p>
+          <p>The coverage has been almost uniformly warm. It's being called one of the most significant privacy changes WhatsApp has made in years, and in one narrow sense, that's fair. But "privacy feature" is doing a lot of work in that sentence, and it's worth being precise about what it actually means before treating this as evidence that WhatsApp has turned a corner.</p>
+
+          <img
+            class="article-img-full"
+            src="images/whatsapp-usernames-profiles.png"
+            alt="WhatsApp username profile cards showing handles such as @AnnaAtWork, @JonnyR, and @Katy_Paints alongside display names."
+            loading="lazy"
+          />
+          <p class="article-img-caption">WhatsApp username reservations. Source: WhatsApp.</p>
+        </div>
+
+        <div class="prose__step">
+          <span class="prose__step-num">01</span>
+          <div class="prose__step-body">
+            <h3 id="three-questions">The three questions any privacy feature has to answer</h3>
+            <p>When you're assessing whether a change actually improves privacy for a client, an employer, or just for yourself, it helps to break the claim into layers. For a messaging platform, there are three:</p>
+            <p><strong>Who can reach me? (reachability)</strong><br />What someone needs to know about you before they can make first contact. This can be a phone number, an email address, or a username. This is the layer that determines how findable you are to a stranger.</p>
+            <p><strong>What's inside my messages? (content)</strong><br />Whether the substance of what you say is shielded from the platform itself, not just from other users. This is the layer of encryption claims that are actually about.</p>
+            <p><strong>What can the platform see about my activity? (metadata)</strong><br />Who you talk to, how often, when, from where, even if it can't read what's said. This is the layer that tends to get ignored, because it's invisible in a way content and reachability aren't.</p>
+            <div class="pull-quote">
+              <p>Usernames answer exactly one of those. They don't touch the other two.</p>
+            </div>
+            <p>That's not a criticism of the feature itself, it's a reminder that a genuine improvement in one layer can get marketed as a wholesale fix for all three.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <span class="prose__step-num">02</span>
+          <div class="prose__step-body">
+            <h3 id="what-changes">What usernames actually change</h3>
+            <p>The process is very straightforward. So, once you've claimed a handle (three to 35 characters, set via Settings &gt; Account &gt; Username), people can message you using it instead of your number. There's no public directory and no autocomplete, so someone has to know your exact username to contact you the first time, and you can layer an optional "username key" on top, a short code that has to accompany the username before a first message goes through.</p>
+
+            <img
+              class="article-img-full"
+              src="images/whatsapp-usernames-ios.png"
+              alt="WhatsApp iOS screens showing username creation, availability check, and username key privacy settings."
+              loading="lazy"
+            />
+            <p class="article-img-caption">Username setup and key controls on iOS. Source: WhatsApp.</p>
+
+            <p>This can solve a real fix for a real friction point, such as:</p>
+            <ul>
+              <li>Handing your number to a seller in a marketplace group</li>
+              <li>A stranger at an event, a new colleague.</li>
+            </ul>
+            <p>It closes a gap Telegram has held over WhatsApp for years and puts WhatsApp roughly level with Signal, which added usernames back in 2024.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <span class="prose__step-num">03</span>
+          <div class="prose__step-body">
+            <h3 id="what-it-doesnt-touch">What it doesn't touch</h3>
+            <p>The rollout lands in the middle of an unresolved argument about what WhatsApp's end-to-end encryption actually guarantees, with the platform's content-access claims currently the subject of active litigation. Usernames don't move that argument forward in either direction; a masked identity says nothing about what happens to the content once a conversation starts.</p>
+            <p>The bigger gap is metadata. Encryption protects the content of a message; it was never designed to protect the fact of who's talking to whom, how often, and when. That metadata layer, not message content, is where most of the platform's privacy controversies have actually originated, and a username rollout does nothing to change what the platform can still observe about your activity. You're harder to find by number. You're not harder to profile.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <span class="prose__step-num">04</span>
+          <div class="prose__step-body">
+            <h3 id="control-you-undo">The control you can undo yourself</h3>
+            <p>There's a more immediate, individual risk worth flagging, and it's one people are likely to get wrong in the first few weeks of the rollout, that is, what you actually put in the username field.</p>
+            <p>The entire design intent of the feature is that people can find and message you using the handle alone. That's the opposite of a private field; it's a semi-public lookup key, deliberately less discoverable than a phone number but discoverable all the same to anyone who has it. If you set that handle to your real full name, you haven't adopted a privacy feature.</p>
+            <p>You've built a searchable identifier and then advertised it as one, which is precisely what a phone number was not; nobody could reverse-search you from a string of digits alone. A name-as-username can be cross-referenced against LinkedIn, Instagram, and a company directory in seconds.</p>
+            <p>This is the kind of control WhatsApp can't protect you from, because it's not a platform failure, it's a configuration choice sitting entirely with the user, which is exactly where most real-world data exposure actually happens.</p>
+          </div>
+        </div>
+
+        <div class="prose__step">
+          <span class="prose__step-num">05</span>
+          <div class="prose__step-body">
+            <h3 id="checklist">A working checklist</h3>
+            <p>For anyone rolling this out for themselves, or advising others to, please consider the following:</p>
+            <div class="callout">
+              <span class="callout__label">Working checklist</span>
+              <ol>
+                <li><strong>Don't default to your real name.</strong> Use a handle unrelated to your legal name, employer, or other social handles, unless discoverability is the point (creators, businesses).</li>
+                <li><strong>Set the username key.</strong> Set the username key if you want a genuine barrier against cold first contact, not just obscurity.</li>
+                <li><strong>Treat this as reachability hygiene, not data protection.</strong> It reduces the number of people who can find you. It does not reduce what the platform collects, what a counterparty can screenshot and forward, or what a subpoena might eventually reach.</li>
+                <li><strong>Re-apply the three-layer test to the next privacy announcement.</strong> From WhatsApp or anyone else. Ask what it changes: who can reach you, what's inside the message, or what the platform can see. Most announcements only ever move one dial and get credited for moving all three.</li>
+              </ol>
+            </div>
+            <div class="pull-quote">
+              <p>The instinct to welcome this change is the right one. The mistake is stopping the analysis there.</p>
+            </div>
+          </div>
+        </div>
+
+          </div><!-- /article-main -->
+
+          <nav class="article-toc" aria-label="Article sections">
+            <p class="toc-label">In this essay</p>
+            <ol class="toc-list">
+              <li><a href="#three-questions">Three questions to answer</a></li>
+              <li><a href="#what-changes">What usernames change</a></li>
+              <li><a href="#what-it-doesnt-touch">What it doesn't touch</a></li>
+              <li><a href="#control-you-undo">The control you can undo</a></li>
+              <li><a href="#checklist">Working checklist</a></li>
+            </ol>
+          </nav>
+        </div><!-- /article-layout -->
+      </div><!-- /wrap -->
+    </section>
+  </main>
+
+  <footer class="foot" role="contentinfo">
+    <div class="wrap">
+      <p class="foot__line">
+        <span>© Clarissa Ankrah 2026</span>
+        <span>clnks.github.io/clarissaankrah</span>
+        <span>Built by Clarissa. Updated regularly.</span>
+      </p>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+  <script src="journal-config.js"></script>
+  <script src="scripts.js"></script>
+  <script src="site-edit.js"></script>
+</body>
+</html>
