@@ -1017,6 +1017,27 @@ a.post-card:hover {
   margin: 0;
 }
 
+.title-subline {
+  display: block;
+  font-weight: 400;
+  color: var(--text-muted);
+  margin-top: 0.15em;
+  letter-spacing: 0;
+}
+
+.post-card__title .title-subline {
+  font-size: 0.92em;
+}
+
+.art-hero__title .title-subline {
+  color: var(--text-soft);
+}
+
+.art-next__name .title-subline {
+  font-size: 0.88em;
+  color: var(--text-soft);
+}
+
 .post-card__desc {
   font-size: 14px;
   line-height: 1.6;
